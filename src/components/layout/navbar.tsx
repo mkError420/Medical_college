@@ -501,13 +501,13 @@ const Navbar: React.FC = () => {
                           href={item.href}
                           className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
                         >
-                          {item.title === "Home" && <Home className="h-4 w-4" />}
+                          {item.title === "Home" && <Home className="h-4 w-4" style={{ color: '#26ABEE' }} />}
                           {item.title}
                         </Link>
                       ) : (
                         <button className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
                           {item.title}
-                          {item.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
+                          {item.children && <span className="ml-1 text-gray-400 text-sm font-bold">+</span>}
                         </button>
                       )}
                       
@@ -533,7 +533,7 @@ const Navbar: React.FC = () => {
                                 ) : (
                                   <div className="px-3 sm:px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer flex items-center justify-between">
                                     <span>{child.title}</span>
-                                    {child.children && <span className="ml-2 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-400 transform rotate-[-45deg]"></span>}
+                                    {child.children && <span className="ml-2 text-gray-400 text-sm font-bold">+</span>}
                                   </div>
                                 )}
                                 
