@@ -449,21 +449,21 @@ const Navbar: React.FC = () => {
       <nav className="bg-white shadow-md sticky top-0 z-40">
         <div className="responsive-container-full">
           <div className="flex justify-between items-center h-16">
-            {/* Desktop Navigation */}
-            <div className="hidden xl:flex items-center justify-center flex-1 w-full">
-              <div className="flex items-center space-x-1">
+                {/* Desktop Navigation */}
+                <div className="hidden lg:flex items-center justify-center flex-1 w-full">
+              <div className="flex items-center space-x-0 sm:space-x-0 lg:space-x-0 xl:space-x-1">
                 {navItems.map((item, index) => (
                   <div key={index} className="relative group">
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className="flex items-center gap-1 px-2 sm:px-3 py-3 text-xs sm:text-sm lg:text-base xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
+                        className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
                       >
                         {item.title === "Home" && <Home className="h-4 w-4" />}
                         {item.title}
                       </Link>
                     ) : (
-                      <button className="flex items-center gap-1 px-2 sm:px-3 py-3 text-xs sm:text-sm lg:text-base xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
+                      <button className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
                         {item.title}
                         {item.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
                       </button>
@@ -520,7 +520,7 @@ const Navbar: React.FC = () => {
               variant="ghost"
               size="icon"
               onClick={toggleMenu}
-              className="xl:hidden"
+              className="lg:hidden"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
@@ -531,10 +531,10 @@ const Navbar: React.FC = () => {
           {isMenuOpen && (
             <>
               <div
-                className="fixed inset-0 bg-black/50 z-40 xl:hidden"
+                className="fixed inset-0 bg-black/50 z-40 lg:hidden"
                 onClick={toggleMenu}
               />
-              <div className="fixed left-0 top-0 bottom-0 w-80 max-w-[85vw] z-50 xl:hidden bg-white overflow-y-auto shadow-xl">
+              <div className="fixed left-0 top-0 bottom-0 w-80 max-w-[85vw] z-50 lg:hidden bg-white overflow-y-auto shadow-xl">
                 <div className="p-3 sm:p-4">
                   <div className="flex justify-between items-center mb-3 sm:mb-4">
                     <div className="flex items-center gap-1 sm:gap-2">
