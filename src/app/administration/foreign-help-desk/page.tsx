@@ -60,6 +60,53 @@ export default function ForeignHelpDeskPage() {
     "English Proficiency Certificate"
   ]
 
+  const foreignOfficers = [
+    {
+      name: "Dr. Sarah Johnson",
+      position: "International Student Coordinator",
+      country: "USA",
+      email: "sarah.johnson@rcmc.edu.bd",
+      phone: "+88-0123456790",
+      languages: ["English", "Spanish", "French"],
+      experience: "10+ years",
+      image: "SJ",
+      color: "from-blue-400 to-blue-600"
+    },
+    {
+      name: "Prof. Dr. Li Wei",
+      position: "Foreign Student Advisor",
+      country: "China",
+      email: "li.wei@rcmc.edu.bd",
+      phone: "+88-0123456791",
+      languages: ["Mandarin", "Cantonese", "English"],
+      experience: "8+ years",
+      image: "LW",
+      color: "from-red-400 to-red-600"
+    },
+    {
+      name: "Dr. Ahmed Hassan",
+      position: "Middle East Student Coordinator",
+      country: "UAE",
+      email: "ahmed.hassan@rcmc.edu.bd",
+      phone: "+88-0123456792",
+      languages: ["Arabic", "English", "Urdu"],
+      experience: "12+ years",
+      image: "AH",
+      color: "from-green-400 to-green-600"
+    },
+    {
+      name: "Ms. Priya Sharma",
+      position: "South Asia Student Coordinator",
+      country: "India",
+      email: "priya.sharma@rcmc.edu.bd",
+      phone: "+88-0123456793",
+      languages: ["Hindi", "Bengali", "English"],
+      experience: "6+ years",
+      image: "PS",
+      color: "from-purple-400 to-purple-600"
+    }
+  ]
+
   const faqs = [
     {
       question: "What are the eligibility criteria for foreign students?",
@@ -118,7 +165,7 @@ export default function ForeignHelpDeskPage() {
       <div className="responsive-container-full py-8">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl p-2 flex flex-wrap gap-2">
-            {["admission", "services", "requirements", "faqs", "contact"].map((tab) => (
+            {["officers", "admission", "services", "requirements", "faqs", "contact"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -128,7 +175,7 @@ export default function ForeignHelpDeskPage() {
                     : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                {tab === "officers" ? "Foreign Officers" : tab.charAt(0).toUpperCase() + tab.slice(1)}
               </button>
             ))}
           </div>
@@ -185,6 +232,58 @@ export default function ForeignHelpDeskPage() {
                   </Card>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Foreign Officers Tab */}
+          {activeTab === "officers" && (
+            <div className="space-y-8">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-800 mb-4">Foreign Officers</h2>
+                <p className="text-xl text-gray-600">Dedicated coordinators for international student support</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {foreignOfficers.map((officer, index) => (
+                  <Card key={index} className="shadow-lg border-0 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <CardContent className="p-6 text-center">
+                      <div className={`w-24 h-24 bg-gradient-to-br ${officer.color} rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <span className="text-white text-2xl font-bold">{officer.image}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-800 mb-1">{officer.name}</h3>
+                      <p className="text-sm font-semibold text-blue-600 mb-1">{officer.position}</p>
+                      <p className="text-xs text-gray-500 mb-3">{officer.country}</p>
+                      
+                      <div className="space-y-2 text-xs mb-4">
+                        <div className="flex items-center justify-center space-x-2">
+                          <Mail className="w-3 h-3 text-gray-400" />
+                          <span className="text-gray-600">{officer.email}</span>
+                        </div>
+                        <div className="flex items-center justify-center space-x-2">
+                          <Phone className="w-3 h-3 text-gray-400" />
+                          <span className="text-gray-600">{officer.phone}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="pt-4 border-t border-gray-100">
+                        <p className="text-xs text-gray-500 mb-2">Languages: {officer.languages.join(", ")}</p>
+                        <p className="text-xs text-gray-500">Experience: {officer.experience}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              <Card className="shadow-lg border-0 bg-gradient-to-r from-blue-50 to-indigo-50">
+                <CardContent className="p-8">
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">24/7 Support Available</h3>
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                      Our foreign officers are available round-the-clock to assist international students with any queries, concerns, or support needs. Feel free to reach out to any officer based on your region or language preference.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           )}
 
