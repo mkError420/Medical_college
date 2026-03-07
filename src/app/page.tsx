@@ -1,50 +1,167 @@
-import React from "react"
+"use client"
+
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { 
-  Users, 
-  GraduationCap, 
-  Stethoscope, 
-  Microscope, 
-  Building, 
-  BookOpen,
-  Award,
-  Clock,
+  Users,
+  Building,
+  Heart,
+  Activity,
+  GraduationCap,
+  Stethoscope,
+  Microscope,
+  ArrowRight,
   Phone,
   Mail,
   MapPin,
-  ArrowRight,
+  Clock,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Youtube,
+  Instagram,
+  Menu,
+  X,
+  ChevronDown,
+  MessageCircle,
+  User,
+  HelpCircle,
+  Award,
+  BookOpen,
   Calendar,
-  Heart,
-  Activity
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react"
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  
+  const banners = [
+    {
+      id: 1,
+      title: "Excellence in Medical Education & Healthcare",
+      description: "A premier institution dedicated to shaping future healthcare professionals through innovative education, research, and compassionate patient care.",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&h=600&fit=crop&auto=format"
+    },
+    {
+      id: 2,
+      title: "Advanced Medical Facilities",
+      description: "State-of-the-art infrastructure and modern medical equipment for comprehensive healthcare services.",
+      image: "https://images.unsplash.com/photo-1538104932647-9b1f756a82f?w=1920&h=600&fit=crop&auto=format"
+    },
+    {
+      id: 3,
+      title: "Expert Medical Faculty",
+      description: "Renowned professors and experienced medical practitioners committed to academic excellence.",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1920&h=600&fit=crop&auto=format"
+    },
+    {
+      id: 4,
+      title: "Research & Innovation",
+      description: "Cutting-edge research facilities and opportunities for medical advancement and discovery.",
+      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1920&h=600&fit=crop&auto=format"
+    }
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % banners.length)
+    }, 5000) // Change slide every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % banners.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length)
+  }
+
   return (
     <div className="bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-primary-dark text-white">
+      {/* Hero Section with Carousel */}
+      <section className="relative bg-gradient-to-r from-primary to-primary-dark text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="responsive-container-full section-padding">
-          <div className="max-w-4xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              Excellence in Medical Education & Healthcare
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-highlight">
-              A premier institution dedicated to shaping future healthcare professionals through innovative education, research, and compassionate patient care.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button size="lg" className="bg-white text-primary hover:bg-highlight">
-                <GraduationCap className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Apply for Admission
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-highlight hover:text-primary">
-                <Stethoscope className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Book Appointment
-              </Button>
+        
+        {/* Carousel Images */}
+        <div className="relative h-96 sm:h-[500px] lg:h-[600px]">
+          {banners.map((banner, index) => (
+            <div
+              key={banner.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={banner.image}
+                alt={banner.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Carousel Content */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="responsive-container-full section-padding">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-white drop-shadow-lg">
+                {banners[currentSlide].title}
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-highlight drop-shadow">
+                {banners[currentSlide].description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-highlight">
+                  <Link href="/admission" className="flex items-center">
+                    <GraduationCap className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    Apply for Admission
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-white text-primary hover:bg-highlight hover:text-darkgreen">
+                  <Link href="/appointment" className="flex items-center">
+                    <Stethoscope className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    Book Appointment
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Carousel Navigation */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+          aria-label="Previous slide"
+        >
+          ‹
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+          aria-label="Next slide"
+        >
+          ›
+        </button>
+
+        {/* Carousel Indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentSlide ? 'bg-white' : 'bg-white/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 

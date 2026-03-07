@@ -321,7 +321,7 @@ function MobileNavItem({
         <Link
           href={item.href}
           onClick={onLinkClick}
-          className="flex items-center py-2 sm:py-3 px-2 sm:px-3 text-xs sm:text-sm text-gray-700 hover:text-primary hover:bg-highlight rounded-md transition-colors text-sm sm:text-base min-h-[44px]"
+          className="flex items-center py-2 sm:py-3 px-2 sm:px-3 text-xs sm:text-sm text-gray-700 hover:text-blue-600 hover:bg-highlight rounded-md transition-colors text-sm sm:text-base min-h-[44px]"
         >
           {item.title}
         </Link>
@@ -335,9 +335,7 @@ function MobileNavItem({
           >
             {item.title}
             {hasChildren && (
-              <ChevronDown
-                className={`h-5 w-5 text-gray-500 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-              />
+              <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>
             )}
           </button>
           {hasChildren && isExpanded && (
@@ -380,29 +378,29 @@ const Navbar: React.FC = () => {
       {/* Top Bar - Dark background */}
       <div className="bg-gray-900 text-white py-2">
         <div className="responsive-container-full">
-          <div className="flex justify-between items-center text-xs sm:text-sm">
-            <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-6">
               <a href="mailto:info@rcmc.edu.bd" className="flex items-center gap-2 hover:underline">
                 <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline">info@rcmc.edu.bd</span>
-                <span className="xs:hidden">Email</span>
+                <span className="hidden xs:inline text-xs sm:text-sm">info@rcmc.edu.bd</span>
+                <span className="xs:hidden text-xs">Email</span>
+              </a>
+              <a href="tel:+880123456789" className="flex items-center gap-2 hover:underline">
+                <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="hidden xs:inline text-xs sm:text-sm">+88-0123456789</span>
+                <span className="xs:hidden text-xs">Phone</span>
               </a>
             </div>
-            <div className="flex items-center gap-3 sm:gap-6">
-              <a href="#contact" className="flex items-center gap-1 sm:gap-2 hover:underline">
-                <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden sm:inline">Contact Us</span>
-                <span className="sm:hidden">Contact</span>
-              </a>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-6">
               <a href="#login" className="flex items-center gap-1 sm:gap-2 hover:underline">
                 <User className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden sm:inline">Login</span>
-                <span className="sm:hidden">Login</span>
+                <span className="hidden xs:inline text-xs sm:text-sm">Login</span>
+                <span className="xs:hidden text-xs">Login</span>
               </a>
               <a href="#faq" className="flex items-center gap-1 sm:gap-2 hover:underline">
                 <HelpCircle className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden sm:inline">FAQ</span>
-                <span className="sm:hidden">FAQ</span>
+                <span className="hidden xs:inline text-xs sm:text-sm">FAQ</span>
+                <span className="xs:hidden text-xs">FAQ</span>
               </a>
             </div>
           </div>
@@ -467,7 +465,7 @@ const Navbar: React.FC = () => {
                     ) : (
                       <button className="flex items-center gap-1 px-2 sm:px-3 py-3 text-xs sm:text-sm lg:text-base xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
                         {item.title}
-                        {item.children && <ChevronDown className="h-4 w-4" />}
+                        {item.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
                       </button>
                     )}
                     
@@ -485,15 +483,15 @@ const Navbar: React.FC = () => {
                                   {child.title}
                                 </Link>
                               ) : (
-                                <div className="px-3 sm:px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-600 hover:text-white transition-colors">
+                                <div className="px-3 sm:px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-600 hover:text-white transition-colors cursor-pointer">
                                   {child.title}
-                                  {child.children && <span className="ml-1">→</span>}
+                                  {child.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
                                 </div>
                               )}
                               
                               {/* Submenu */}
                               {child.children && (
-                                <div className="absolute left-full top-0 ml-2 w-48 sm:w-56 lg:w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-300">
+                                <div className="absolute left-full top-0 ml-2 w-48 sm:w-56 lg:w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-300 z-50">
                                   <div className="py-2">
                                     {child.children.map((subChild, subChildIndex) => (
                                       <Link
@@ -536,7 +534,7 @@ const Navbar: React.FC = () => {
                 className="fixed inset-0 bg-black/50 z-40 xl:hidden"
                 onClick={toggleMenu}
               />
-              <div className="fixed left-0 right-0 top-0 bottom-0 z-50 xl:hidden bg-white overflow-y-auto">
+              <div className="fixed left-0 top-0 bottom-0 w-80 max-w-[85vw] z-50 xl:hidden bg-white overflow-y-auto shadow-xl">
                 <div className="p-3 sm:p-4">
                   <div className="flex justify-between items-center mb-3 sm:mb-4">
                     <div className="flex items-center gap-1 sm:gap-2">
