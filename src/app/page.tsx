@@ -49,7 +49,7 @@ export default function Home() {
       id: 2,
       title: "Advanced Medical Facilities",
       description: "State-of-the-art infrastructure and modern medical equipment for comprehensive healthcare services.",
-      image: "https://images.unsplash.com/photo-1538104932647-9b1f756a82f?w=1920&h=600&fit=crop&auto=format"
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=600&fit=crop&auto=format"
     },
     {
       id: 3,
@@ -119,13 +119,11 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-highlight">
                   <Link href="/admission" className="flex items-center">
-                    <GraduationCap className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                     Apply for Admission
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-primary hover:bg-highlight hover:text-darkgreen">
                   <Link href="/appointment" className="flex items-center">
-                    <Stethoscope className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                     Book Appointment
                   </Link>
                 </Button>
