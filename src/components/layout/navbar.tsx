@@ -335,19 +335,29 @@ function MobileNavItem({
           >
             {item.title}
             {hasChildren && (
-              <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>
+              <span
+                className={`ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform transition-transform duration-300 ease-out ${
+                  isExpanded ? "rotate-[135deg]" : "rotate-[-45deg]"
+                }`}
+              ></span>
             )}
           </button>
-          {hasChildren && isExpanded && (
-            <div className="mt-0 sm:mt-1 space-y-0">
-              {item.children!.map((child, idx) => (
-                <MobileNavItem
-                  key={idx}
-                  item={child}
-                  onLinkClick={onLinkClick}
-                  level={level + 1}
-                />
-              ))}
+          {hasChildren && (
+            <div
+              className={`mt-0 sm:mt-1 overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="space-y-0">
+                {item.children!.map((child, idx) => (
+                  <MobileNavItem
+                    key={idx}
+                    item={child}
+                    onLinkClick={onLinkClick}
+                    level={level + 1}
+                  />
+                ))}
+              </div>
             </div>
           )}
         </>
@@ -480,7 +490,7 @@ const Navbar: React.FC = () => {
 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center justify-center flex-1 w-full">
-              <div className="flex items-center space-x-0 sm:space-x-0 lg:space-x-0 xl:space-x-1">
+              <div className="flex items-center space-x-0 sm:space-x-0 lg:space-x-2 xl:space-x-3">
                 {navItems.map((item, index) => {
                   const isLastTwo = index >= navItems.length - 2
 
@@ -504,10 +514,12 @@ const Navbar: React.FC = () => {
                       {/* Dropdown Menu */}
                       {item.children && (
                         <div
-                          className={`absolute mt-2 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
+                          className={`absolute top-full mt-0 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
                             isLastTwo ? "left-0 lg:left-auto lg:right-0" : "left-0"
                           }`}
                         >
+                          {/* Bridge area to prevent gap */}
+                          <div className="absolute -top-2 left-0 right-0 h-2 bg-transparent" />
                           <div className="py-2">
                             {item.children.map((child, childIndex) => (
                               <div key={childIndex} className="relative group/submenu">
@@ -528,10 +540,12 @@ const Navbar: React.FC = () => {
                                 {/* Submenu */}
                                 {child.children && (
                                   <div
-                                    className={`absolute top-0 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-300 z-50 ${
-                                      isLastTwo ? "right-full mr-2" : "left-full ml-2"
+                                    className={`absolute top-0 left-full ml-0 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible translate-x-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover/submenu:opacity-100 group-hover/submenu:visible group-hover/submenu:translate-x-0 group-hover/submenu:scale-100 group-hover/submenu:pointer-events-auto ${
+                                      isLastTwo ? "right-full mr-0 left-auto" : "left-full ml-0"
                                     }`}
                                   >
+                                    {/* Bridge area to prevent gap */}
+                                    <div className="absolute top-0 -left-2 bottom-0 w-2 bg-transparent" />
                                     <div className="py-2">
                                       {child.children.map((subChild, subChildIndex) => (
                                         <Link
@@ -558,47 +572,55 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <>
-              <div
-                className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-                onClick={toggleMenu}
-              />
-              <div className="fixed left-0 top-0 bottom-0 w-80 max-w-[85vw] z-50 lg:hidden bg-white overflow-y-auto shadow-xl">
-                <div className="p-3 sm:p-4">
-                  <div className="flex justify-between items-center mb-3 sm:mb-4">
-                    <div className="flex items-center gap-1 sm:gap-2">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-xs sm:text-sm">RCMC</span>
-                      </div>
-                      <div>
-                        <h2 className="text-sm sm:text-base font-bold text-gray-900">RCMC Rangpur</h2>
-                        <p className="text-xs text-gray-600">Rangpur Community Medical College</p>
-                      </div>
+          <>
+            <div
+              className={`fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300 ease-out ${
+                isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+              onClick={toggleMenu}
+              aria-hidden={!isMenuOpen}
+            />
+            <div
+              className={`fixed left-0 top-0 bottom-0 w-80 max-w-[85vw] z-50 lg:hidden bg-white overflow-y-auto shadow-xl transform transition-transform duration-300 ease-out will-change-transform ${
+                isMenuOpen ? "translate-x-0" : "-translate-x-full pointer-events-none"
+              }`}
+              role="dialog"
+              aria-modal="true"
+              aria-hidden={!isMenuOpen}
+            >
+              <div className="p-3 sm:p-4">
+                <div className="flex justify-between items-center mb-3 sm:mb-4">
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-xs sm:text-sm">RCMC</span>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={toggleMenu}
-                      aria-label="Close menu"
-                    >
-                      <X className="h-5 w-5 sm:h-6 sm:w-6" />
-                    </Button>
+                    <div>
+                      <h2 className="text-sm sm:text-base font-bold text-gray-900">RCMC Rangpur</h2>
+                      <p className="text-xs text-gray-600">Rangpur Community Medical College</p>
+                    </div>
                   </div>
-                  
-                  <div className="space-y-0 sm:space-y-1">
-                    {navItems.map((item, index) => (
-                      <MobileNavItem
-                        key={index}
-                        item={item}
-                        onLinkClick={toggleMenu}
-                      />
-                    ))}
-                  </div>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={toggleMenu}
+                    aria-label="Close menu"
+                  >
+                    <X className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </Button>
+                </div>
+                
+                <div className="space-y-0 sm:space-y-1">
+                  {navItems.map((item, index) => (
+                    <MobileNavItem
+                      key={index}
+                      item={item}
+                      onLinkClick={toggleMenu}
+                    />
+                  ))}
                 </div>
               </div>
-            </>
-          )}
+            </div>
+          </>
         </div>
       </nav>
     </>
