@@ -526,14 +526,14 @@ const Navbar: React.FC = () => {
                                 {child.href ? (
                                   <Link
                                     href={child.href}
-                                    className="block px-3 sm:px-4 py-2 text-xs text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                                    className="block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                                   >
                                     {child.title}
                                   </Link>
                                 ) : (
-                                  <div className="px-3 sm:px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-600 hover:text-white transition-colors cursor-pointer">
-                                    {child.title}
-                                    {child.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
+                                  <div className="px-3 sm:px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer flex items-center justify-between">
+                                    <span>{child.title}</span>
+                                    {child.children && <span className="ml-2 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-400 transform rotate-[-45deg]"></span>}
                                   </div>
                                 )}
                                 
@@ -551,7 +551,7 @@ const Navbar: React.FC = () => {
                                         <Link
                                           key={subChildIndex}
                                           href={subChild.href || "#"}
-                                          className="block px-3 sm:px-4 py-2 text-xs text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                                          className="block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                                         >
                                           {subChild.title}
                                         </Link>
