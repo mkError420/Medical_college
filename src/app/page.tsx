@@ -88,7 +88,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/20"></div>
         
         {/* Carousel Images */}
-        <div className="relative h-96 sm:h-[500px] lg:h-[600px]">
+        <div className="relative min-h-[420px] sm:min-h-[520px] lg:min-h-[620px]">
           {banners.map((banner, index) => (
             <div
               key={banner.id}
@@ -107,8 +107,8 @@ export default function Home() {
         </div>
 
         {/* Carousel Content */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="responsive-container-full section-padding">
+        <div className="absolute inset-0 flex items-center justify-center z-10 px-4 sm:px-6">
+          <div className="responsive-container-full py-10 sm:py-14 lg:py-16">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-white drop-shadow-lg">
                 {banners[currentSlide].title}
@@ -116,7 +116,7 @@ export default function Home() {
               <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-highlight drop-shadow">
                 {banners[currentSlide].description}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-highlight">
                   <Link href="/admission" className="flex items-center">
                     Apply for Admission
@@ -135,21 +135,21 @@ export default function Home() {
         {/* Carousel Navigation */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-colors"
           aria-label="Previous slide"
         >
           ‹
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-colors"
           aria-label="Next slide"
         >
           ›
         </button>
 
         {/* Carousel Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {banners.map((_, index) => (
             <button
               key={index}

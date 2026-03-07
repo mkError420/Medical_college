@@ -376,7 +376,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       {/* Top Bar - Dark background */}
-      <div className="bg-gray-900 text-white py-2">
+      <div className="hidden lg:block bg-gray-900 text-white py-2">
         <div className="responsive-container-full">
           <div className="flex flex-wrap justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0">
             <div className="flex flex-wrap items-center gap-2 sm:gap-6">
@@ -408,7 +408,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Middle Bar - Logo and Contact Info */}
-      <div className="bg-white py-3 sm:py-4 border-b">
+      <div className="hidden lg:block bg-white py-3 sm:py-4 border-b">
         <div className="responsive-container-full">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             {/* Logo */}
@@ -448,83 +448,113 @@ const Navbar: React.FC = () => {
       {/* Main Navigation */}
       <nav className="bg-white shadow-md sticky top-0 z-40">
         <div className="responsive-container-full">
-          <div className="flex justify-between items-center h-16">
-                {/* Desktop Navigation */}
-                <div className="hidden lg:flex items-center justify-center flex-1 w-full">
-              <div className="flex items-center space-x-0 sm:space-x-0 lg:space-x-0 xl:space-x-1">
-                {navItems.map((item, index) => (
-                  <div key={index} className="relative group">
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
-                      >
-                        {item.title === "Home" && <Home className="h-4 w-4" />}
-                        {item.title}
-                      </Link>
-                    ) : (
-                      <button className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
-                        {item.title}
-                        {item.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
-                      </button>
-                    )}
-                    
-                    {/* Dropdown Menu */}
-                    {item.children && (
-                      <div className="absolute left-0 mt-2 w-48 sm:w-56 lg:w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div className="py-2">
-                          {item.children.map((child, childIndex) => (
-                            <div key={childIndex} className="relative group/submenu">
-                              {child.href ? (
-                                <Link
-                                  href={child.href}
-                                  className="block px-3 sm:px-4 py-2 text-xs text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
-                                >
-                                  {child.title}
-                                </Link>
-                              ) : (
-                                <div className="px-3 sm:px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-600 hover:text-white transition-colors cursor-pointer">
-                                  {child.title}
-                                  {child.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
-                                </div>
-                              )}
-                              
-                              {/* Submenu */}
-                              {child.children && (
-                                <div className="absolute left-full top-0 ml-2 w-48 sm:w-56 lg:w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-300 z-50">
-                                  <div className="py-2">
-                                    {child.children.map((subChild, subChildIndex) => (
-                                      <Link
-                                        key={subChildIndex}
-                                        href={subChild.href || "#"}
-                                        className="block px-3 sm:px-4 py-2 text-xs text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
-                                      >
-                                        {subChild.title}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
+          <div className="flex justify-between items-center h-12 sm:h-14 lg:h-16">
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleMenu}
-              className="lg:hidden"
+              className="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-white border border-gray-200 shadow-sm text-gray-800 hover:bg-gray-50 hover:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
-              {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
+
+            <div className="lg:hidden flex-1 px-2 ml-[3px]">
+              <div className="flex items-center justify-center gap-2 min-w-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 rounded-md flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-xs sm:text-sm">RCMC</span>
+                </div>
+                <div className="min-w-0 text-left">
+                  <div className="truncate text-sm sm:text-base font-semibold text-gray-900 leading-tight">
+                    Rangpur Community Medical College & Hospital
+                  </div>
+                  <div className="truncate text-[10px] sm:text-xs text-gray-600 leading-tight">
+                    An Institution of RANGPUR GROUP
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:hidden h-9 w-9 sm:h-10 sm:w-10" />
+
+                {/* Desktop Navigation */}
+                <div className="hidden lg:flex items-center justify-center flex-1 w-full">
+              <div className="flex items-center space-x-0 sm:space-x-0 lg:space-x-0 xl:space-x-1">
+                {navItems.map((item, index) => {
+                  const isLastTwo = index >= navItems.length - 2
+
+                  return (
+                    <div key={index} className="relative group">
+                      {item.href ? (
+                        <Link
+                          href={item.href}
+                          className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
+                        >
+                          {item.title === "Home" && <Home className="h-4 w-4" />}
+                          {item.title}
+                        </Link>
+                      ) : (
+                        <button className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
+                          {item.title}
+                          {item.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
+                        </button>
+                      )}
+                      
+                      {/* Dropdown Menu */}
+                      {item.children && (
+                        <div
+                          className={`absolute mt-2 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
+                            isLastTwo ? "left-0 lg:left-auto lg:right-0" : "left-0"
+                          }`}
+                        >
+                          <div className="py-2">
+                            {item.children.map((child, childIndex) => (
+                              <div key={childIndex} className="relative group/submenu">
+                                {child.href ? (
+                                  <Link
+                                    href={child.href}
+                                    className="block px-3 sm:px-4 py-2 text-xs text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                                  >
+                                    {child.title}
+                                  </Link>
+                                ) : (
+                                  <div className="px-3 sm:px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-600 hover:text-white transition-colors cursor-pointer">
+                                    {child.title}
+                                    {child.children && <span className="ml-1 inline-block w-2 h-2 border-r-2 border-b-2 border-gray-300 transform rotate-[-45deg]"></span>}
+                                  </div>
+                                )}
+                                
+                                {/* Submenu */}
+                                {child.children && (
+                                  <div
+                                    className={`absolute top-0 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-300 z-50 ${
+                                      isLastTwo ? "right-full mr-2" : "left-full ml-2"
+                                    }`}
+                                  >
+                                    <div className="py-2">
+                                      {child.children.map((subChild, subChildIndex) => (
+                                        <Link
+                                          key={subChildIndex}
+                                          href={subChild.href || "#"}
+                                          className="block px-3 sm:px-4 py-2 text-xs text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                                        >
+                                          {subChild.title}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
