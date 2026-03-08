@@ -217,11 +217,11 @@ export default function Home() {
       </section>
 
       {/* News Ticker */}
-      <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-3 overflow-hidden">
+      <section className="bg-[#EAEAEA] text-[#116C64] py-3 overflow-hidden">
         <div className="flex items-center">
-          <div className="bg-white/20 px-4 py-2 flex items-center space-x-2 z-10 relative">
-            <Megaphone className="w-5 h-5" />
-            <span className="font-bold text-sm sm:text-base">Latest News</span>
+          <div className="bg-[#116C64]/10 px-4 py-2 flex items-center space-x-2 z-10 relative">
+            <Megaphone className="w-5 h-5 text-[#116C64]" />
+            <span className="font-bold text-sm sm:text-base text-[#116C64]">Latest News</span>
           </div>
           <div className="flex-1 overflow-hidden">
             <div className="animate-ticker flex items-center space-x-8 whitespace-nowrap">
@@ -229,16 +229,16 @@ export default function Home() {
                 <div key={`${item.id}-${index}`} className="flex items-center space-x-3 py-1">
                   <span className={`px-2 py-1 text-xs font-semibold rounded ${
                     item.urgency === 'high' 
-                      ? 'bg-yellow-400 text-red-900' 
+                      ? 'bg-[#116C64] text-white' 
                       : item.urgency === 'medium'
-                      ? 'bg-blue-400 text-white'
-                      : 'bg-green-400 text-white'
+                      ? 'bg-[#116C64]/80 text-white'
+                      : 'bg-[#116C64]/60 text-white'
                   }`}>
                     {item.type}
                   </span>
                   <span className="text-sm sm:text-base">{item.title}</span>
                   {item.urgency === 'high' && (
-                    <TrendingUp className="w-4 h-4 text-yellow-300" />
+                    <TrendingUp className="w-4 h-4 text-[#116C64]" />
                   )}
                 </div>
               ))}
