@@ -514,7 +514,7 @@ const Navbar: React.FC = () => {
                       {/* Dropdown Menu */}
                       {item.children && (
                         <div
-                          className={`absolute top-full mt-0 rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
+                          className={`absolute top-full mt-0 rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-all duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
                             isLastTwo ? "left-0 lg:left-auto lg:right-0" : "left-0"
                           } ${
                             item.title === "General Information" ? "w-96 sm:w-[28rem] lg:w-[34rem]" : "w-40 sm:w-44 lg:w-48"
@@ -536,9 +536,7 @@ const Navbar: React.FC = () => {
                                 {child.href ? (
                                   <Link
                                     href={child.href}
-                                    className={`block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors ${
-                                      item.title === "General Information" ? "whitespace-normal leading-snug" : ""
-                                    }`}
+                                    className={`block px-3 sm:px-4 py-2 text-sm text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
                                   >
                                     {child.title}
                                   </Link>
@@ -552,7 +550,7 @@ const Navbar: React.FC = () => {
                                 {/* Submenu */}
                                 {child.children && (
                                   <div
-                                    className={`absolute top-0 left-full ml-0 rounded-lg shadow-xl opacity-0 invisible translate-x-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover/submenu:opacity-100 group-hover/submenu:visible group-hover/submenu:translate-x-0 group-hover/submenu:scale-100 group-hover/submenu:pointer-events-auto ${
+                                    className={`absolute top-0 left-full ml-0 rounded-lg shadow-xl opacity-0 invisible translate-x-2 scale-[0.98] pointer-events-none transition-all duration-200 ease-out z-50 group-hover/submenu:opacity-100 group-hover/submenu:visible group-hover/submenu:translate-x-0 group-hover/submenu:scale-100 group-hover/submenu:pointer-events-auto ${
                                       isLastTwo ? "right-full mr-0 left-auto" : "left-full ml-0"
                                     } min-w-[320px]`}
                                     style={{ backgroundColor: '#E7EFE8' }}
@@ -566,7 +564,7 @@ const Navbar: React.FC = () => {
                                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-0.5" />
                                             <Link
                                               href={subChild.href || "#"}
-                                              className="block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors whitespace-normal leading-snug"
+                                              className={`block px-3 sm:px-4 py-2 text-sm text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
                                             >
                                               {subChild.title}
                                             </Link>
