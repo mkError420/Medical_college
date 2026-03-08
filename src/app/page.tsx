@@ -32,7 +32,9 @@ import {
   BookOpen,
   Calendar,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Megaphone,
+  TrendingUp
 } from "lucide-react"
 
 export default function Home() {
@@ -62,6 +64,57 @@ export default function Home() {
       title: "Research & Innovation",
       description: "Cutting-edge research facilities and opportunities for medical advancement and discovery.",
       image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1920&h=600&fit=crop&auto=format"
+    }
+  ]
+
+  const newsItems = [
+    {
+      id: 1,
+      title: "MBBS Admission 2024 Now Open - Apply Before Deadline",
+      type: "Admission",
+      urgency: "high"
+    },
+    {
+      id: 2,
+      title: "New Advanced ICU Wing Inaugurated at Hospital",
+      type: "Facility",
+      urgency: "medium"
+    },
+    {
+      id: 3,
+      title: "Faculty Receives National Research Excellence Award",
+      type: "Achievement",
+      urgency: "medium"
+    },
+    {
+      id: 4,
+      title: "Medical Symposium 2024 - Registration Now Open",
+      type: "Event",
+      urgency: "low"
+    },
+    {
+      id: 5,
+      title: "Free Health Camp for Local Community This Weekend",
+      type: "Community",
+      urgency: "high"
+    },
+    {
+      id: 6,
+      title: "New Pediatric Department Fully Operational",
+      type: "Service",
+      urgency: "medium"
+    },
+    {
+      id: 7,
+      title: "Orientation Program for New Students - April 1st",
+      type: "Academic",
+      urgency: "low"
+    },
+    {
+      id: 8,
+      title: "Hospital Achieves ISO Certification for Quality Healthcare",
+      type: "Achievement",
+      urgency: "high"
     }
   ]
 
@@ -160,6 +213,37 @@ export default function Home() {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+        </div>
+      </section>
+
+      {/* News Ticker */}
+      <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-3 overflow-hidden">
+        <div className="flex items-center">
+          <div className="bg-white/20 px-4 py-2 flex items-center space-x-2 z-10 relative">
+            <Megaphone className="w-5 h-5" />
+            <span className="font-bold text-sm sm:text-base">Latest News</span>
+          </div>
+          <div className="flex-1 overflow-hidden">
+            <div className="animate-ticker flex items-center space-x-8 whitespace-nowrap">
+              {[...newsItems, ...newsItems].map((item, index) => (
+                <div key={`${item.id}-${index}`} className="flex items-center space-x-3 py-1">
+                  <span className={`px-2 py-1 text-xs font-semibold rounded ${
+                    item.urgency === 'high' 
+                      ? 'bg-yellow-400 text-red-900' 
+                      : item.urgency === 'medium'
+                      ? 'bg-blue-400 text-white'
+                      : 'bg-green-400 text-white'
+                  }`}>
+                    {item.type}
+                  </span>
+                  <span className="text-sm sm:text-base">{item.title}</span>
+                  {item.urgency === 'high' && (
+                    <TrendingUp className="w-4 h-4 text-yellow-300" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
