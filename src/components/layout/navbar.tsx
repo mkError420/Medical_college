@@ -74,7 +74,7 @@ const navItems: NavItem[] = [
           { title: "Organogram", href: "/administration/general/organogram" },
           { title: "Service Rules", href: "/administration/general/service-rules" },
           { title: "Job Description", href: "/administration/general/job-description" },
-          { title: "Curriculum 2021", href: "/administration/general/curriculum-2021" },
+          { title: "Curriculum", href: "/administration/general/curriculum" },
           { title: "Standard Operating Procedures (SOPs)", href: "/administration/general/sops" },
           { title: "Quality Assurance Scheme (QAS)", href: "/administration/general/qas" },
           { title: "Medical Ethics BMDC", href: "/administration/general/medical-ethics" },
