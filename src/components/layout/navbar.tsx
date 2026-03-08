@@ -148,7 +148,7 @@ const navItems: NavItem[] = [
           { title: "Physiotherapy", href: "/departments/phase-4/physiotherapy" },
           { title: "Orthopaedics", href: "/departments/phase-4/orthopaedics" },
           { title: "Casualty", href: "/departments/phase-4/casualty" },
-          { title: "Otorhinolaryngology (ENT)", href: "/departments/phase-4/ent" },
+          { title: "Otorhinolaryngology (ENT)", href: "/departments/phase-4/otorhinolaryngology" },
           { title: "Ophthalmology", href: "/departments/phase-4/ophthalmology" },
           { title: "Urology", href: "/departments/phase-4/urology" },
           { title: "Radiology & Imaging", href: "/departments/phase-4/radiology" },
@@ -514,22 +514,31 @@ const Navbar: React.FC = () => {
                       {/* Dropdown Menu */}
                       {item.children && (
                         <div
-                          className={`absolute top-full mt-0 bg-white rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
+                          className={`absolute top-full mt-0 rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
                             isLastTwo ? "left-0 lg:left-auto lg:right-0" : "left-0"
                           } ${
-                            item.title === "General Information" ? "w-80 sm:w-96 lg:w-[24rem]" : "w-40 sm:w-44 lg:w-48"
+                            item.title === "General Information" ? "w-96 sm:w-[28rem] lg:w-[34rem]" : "w-40 sm:w-44 lg:w-48"
                           }`}
+                          style={{ backgroundColor: '#E7EFE8' }}
                         >
                           {/* Bridge area to prevent gap */}
                           <div className="absolute -top-2 left-0 right-0 h-2 bg-transparent" />
                           <div className="py-2">
-                            <div className={item.title === "General Information" ? "grid grid-cols-2 gap-x-4 gap-y-1 px-2" : ""}>
+                            <div
+                              className={
+                                item.title === "General Information"
+                                  ? "grid grid-cols-2 gap-x-3 gap-y-1 px-2 auto-rows-min"
+                                  : ""
+                              }
+                            >
                               {item.children.map((child, childIndex) => (
                               <div key={childIndex} className="relative group/submenu">
                                 {child.href ? (
                                   <Link
                                     href={child.href}
-                                    className="block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                                    className={`block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors ${
+                                      item.title === "General Information" ? "whitespace-normal leading-snug" : ""
+                                    }`}
                                   >
                                     {child.title}
                                   </Link>
@@ -543,22 +552,27 @@ const Navbar: React.FC = () => {
                                 {/* Submenu */}
                                 {child.children && (
                                   <div
-                                    className={`absolute top-0 left-full ml-0 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible translate-x-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover/submenu:opacity-100 group-hover/submenu:visible group-hover/submenu:translate-x-0 group-hover/submenu:scale-100 group-hover/submenu:pointer-events-auto ${
+                                    className={`absolute top-0 left-full ml-0 rounded-lg shadow-xl opacity-0 invisible translate-x-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover/submenu:opacity-100 group-hover/submenu:visible group-hover/submenu:translate-x-0 group-hover/submenu:scale-100 group-hover/submenu:pointer-events-auto ${
                                       isLastTwo ? "right-full mr-0 left-auto" : "left-full ml-0"
-                                    }`}
+                                    } min-w-[320px]`}
+                                    style={{ backgroundColor: '#E7EFE8' }}
                                   >
                                     {/* Bridge area to prevent gap */}
                                     <div className="absolute top-0 -left-2 bottom-0 w-2 bg-transparent" />
                                     <div className="py-2">
-                                      {child.children.map((subChild, subChildIndex) => (
-                                        <Link
-                                          key={subChildIndex}
-                                          href={subChild.href || "#"}
-                                          className="block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
-                                        >
-                                          {subChild.title}
-                                        </Link>
-                                      ))}
+                                      <div className="grid grid-cols-2 gap-x-1 gap-y-1 px-1">
+                                        {child.children.map((subChild, subChildIndex) => (
+                                          <div key={subChildIndex} className="flex items-center space-x-0.5">
+                                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-0.5" />
+                                            <Link
+                                              href={subChild.href || "#"}
+                                              className="block px-3 sm:px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors whitespace-normal leading-snug"
+                                            >
+                                              {subChild.title}
+                                            </Link>
+                                          </div>
+                                        ))}
+                                      </div>
                                     </div>
                                   </div>
                                 )}
