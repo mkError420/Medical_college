@@ -514,14 +514,17 @@ const Navbar: React.FC = () => {
                       {/* Dropdown Menu */}
                       {item.children && (
                         <div
-                          className={`absolute top-full mt-0 w-40 sm:w-44 lg:w-48 bg-white rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
+                          className={`absolute top-full mt-0 bg-white rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-[opacity,transform] duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
                             isLastTwo ? "left-0 lg:left-auto lg:right-0" : "left-0"
+                          } ${
+                            item.title === "General Information" ? "w-80 sm:w-96 lg:w-[24rem]" : "w-40 sm:w-44 lg:w-48"
                           }`}
                         >
                           {/* Bridge area to prevent gap */}
                           <div className="absolute -top-2 left-0 right-0 h-2 bg-transparent" />
                           <div className="py-2">
-                            {item.children.map((child, childIndex) => (
+                            <div className={item.title === "General Information" ? "grid grid-cols-2 gap-x-4 gap-y-1 px-2" : ""}>
+                              {item.children.map((child, childIndex) => (
                               <div key={childIndex} className="relative group/submenu">
                                 {child.href ? (
                                   <Link
@@ -561,6 +564,7 @@ const Navbar: React.FC = () => {
                                 )}
                               </div>
                             ))}
+                            </div>
                           </div>
                         </div>
                       )}
