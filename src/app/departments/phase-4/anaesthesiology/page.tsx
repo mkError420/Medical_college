@@ -416,7 +416,7 @@ export default function AnaesthesiologyPage() {
       </div>
 
       {/* Navigation */}
-      <div className="bg-white shadow-lg sticky top-0 z-40">
+      <div className="bg-white shadow-lg">
         <div className="responsive-container-full">
           <div className="flex justify-center">
             {views.map((view) => (
