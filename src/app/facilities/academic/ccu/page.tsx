@@ -11,6 +11,7 @@ export default function CCUPage() {
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: '📊', color: 'from-red-500 to-red-600' },
+    { id: 'gallery', label: 'Gallery', icon: '🖼️', color: 'from-indigo-500 to-indigo-600' },
     { id: 'beds', label: 'CCU Beds', icon: '🛏️', color: 'from-pink-500 to-pink-600' },
     { id: 'procedures', label: 'Procedures', icon: '🏥', color: 'from-purple-500 to-purple-600' },
     { id: 'equipment', label: 'Equipment', icon: '🔧', color: 'from-blue-500 to-blue-600' },
@@ -375,6 +376,72 @@ export default function CCUPage() {
       trend: "up",
       icon: GraduationCap,
       color: "text-blue-600"
+    }
+  ]
+
+  const galleryImages = [
+    {
+      id: 1,
+      title: "CCU Main Ward",
+      category: "facility",
+      description: "Main coronary care unit with advanced monitoring systems",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 2,
+      title: "Cardiac Monitor Setup",
+      category: "equipment",
+      description: "State-of-the-art cardiac monitoring equipment at each bedside",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 3,
+      title: "Emergency Response Team",
+      category: "staff",
+      description: "Dedicated cardiac emergency response team in action",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 4,
+      title: "IABP Console",
+      category: "equipment",
+      description: "Intra-aortic balloon pump console for mechanical support",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 5,
+      title: "CCU Nursing Station",
+      category: "facility",
+      description: "Central nursing station with comprehensive monitoring displays",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 6,
+      title: "Training Session",
+      category: "education",
+      description: "Cardiology fellows undergoing advanced CCU training",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 7,
+      title: "Patient Room",
+      category: "facility",
+      description: "Private CCU room with full monitoring and support systems",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 8,
+      title: "Multidisciplinary Rounds",
+      category: "staff",
+      description: "Daily multidisciplinary team rounds for patient care planning",
+      image: "/api/placeholder/400/300"
+    },
+    {
+      id: 9,
+      title: "Defibrillator System",
+      category: "equipment",
+      description: "Advanced defibrillation system for emergency cardiac care",
+      image: "/api/placeholder/400/300"
     }
   ]
 
@@ -861,6 +928,101 @@ export default function CCUPage() {
     </div>
   )
 
+  const renderGallery = () => (
+    <div className="space-y-8">
+      {/* Gallery Categories */}
+      <div className="flex gap-2 border-b">
+        {['all', 'facility', 'equipment', 'staff', 'education'].map((category) => (
+          <button
+            key={category}
+            onClick={() => setActiveProcedure(category)}
+            className={`px-4 py-2 font-medium transition-colors ${
+              activeProcedure === category
+                ? 'border-b-2 border-indigo-600 text-indigo-600'
+                : 'border-transparent text-gray-600 hover:text-gray-800'
+            }`}
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {/* Gallery Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {galleryImages
+          .filter(img => activeProcedure === 'all' || img.category === activeProcedure)
+          .map((image, index) => (
+          <Card key={index} className="shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+            <div className="relative overflow-hidden">
+              <div className="w-full h-48 bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
+                <ImageIcon className="w-16 h-16 text-indigo-300" />
+              </div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                <button className="opacity-0 group-hover:opacity-100 bg-white text-indigo-600 px-4 py-2 rounded-lg font-medium transform scale-95 group-hover:scale-100 transition-all duration-300">
+                  View Image
+                </button>
+              </div>
+              <div className="absolute top-2 right-2">
+                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                  image.category === 'facility' ? 'bg-blue-100 text-blue-700' :
+                  image.category === 'equipment' ? 'bg-green-100 text-green-700' :
+                  image.category === 'staff' ? 'bg-purple-100 text-purple-700' :
+                  'bg-orange-100 text-orange-700'
+                }`}>
+                  {image.category}
+                </span>
+              </div>
+            </div>
+            <CardContent className="p-6">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">{image.title}</h3>
+              <p className="text-sm text-gray-600 mb-4">{image.description}</p>
+              <div className="flex gap-2">
+                <button className="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+                  View Full Size
+                </button>
+                <button className="flex-1 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                  Download
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Gallery Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <Card className="bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+          <CardContent className="p-6 text-center">
+            <Building className="w-12 h-12 mx-auto mb-4" />
+            <div className="text-3xl font-bold mb-2">3</div>
+            <div className="text-sm opacity-90">Facility Images</div>
+          </CardContent>
+        </Card>
+        <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white">
+          <CardContent className="p-6 text-center">
+            <Wrench className="w-12 h-12 mx-auto mb-4" />
+            <div className="text-3xl font-bold mb-2">3</div>
+            <div className="text-sm opacity-90">Equipment Images</div>
+          </CardContent>
+        </Card>
+        <Card className="bg-gradient-to-br from-purple-500 to-purple-600 text-white">
+          <CardContent className="p-6 text-center">
+            <Users className="w-12 h-12 mx-auto mb-4" />
+            <div className="text-3xl font-bold mb-2">2</div>
+            <div className="text-sm opacity-90">Staff Images</div>
+          </CardContent>
+        </Card>
+        <Card className="bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+          <CardContent className="p-6 text-center">
+            <GraduationCap className="w-12 h-12 mx-auto mb-4" />
+            <div className="text-3xl font-bold mb-2">1</div>
+            <div className="text-sm opacity-90">Education Images</div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+
   const renderContent = () => {
     switch(activeTab) {
       case 'overview': return renderOverview()
@@ -868,6 +1030,7 @@ export default function CCUPage() {
       case 'procedures': return renderProcedures()
       case 'equipment': return renderEquipment()
       case 'schedule': return renderSchedule()
+      case 'gallery': return renderGallery()
       default: return renderOverview()
     }
   }
