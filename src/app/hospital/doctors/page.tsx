@@ -449,9 +449,6 @@ export default function HospitalDoctorsPage() {
         <div className="container mx-auto px-4 py-12">
           <div className="text-center">
             <div className="flex justify-center mb-4">
-              <div className="bg-gray-100 p-4 rounded-full">
-                <Users className="h-12 w-12 text-blue-600" />
-              </div>
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold mb-4">Our Medical Team</h1>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
