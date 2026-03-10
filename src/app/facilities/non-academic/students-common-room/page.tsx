@@ -2,7 +2,9 @@
 
 import React, { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, Award, Clock, Calendar, Target, Lightbulb, Star, Coffee, Heart, CheckCircle, BookOpen, Building, MapPin, Phone, Mail, Activity, Shield, Settings, Wifi, Car, Monitor, User, TrendingUp, ChevronRight, ArrowRight, Gamepad2, Music, Pizza, Dumbbell, Tv, Headphones, Utensils, Laptop, Smartphone, Tablet, Smile, Zap, Trophy, Medal, Flag, MessageCircle, Share2, Download, Upload, Eye, FileText, Search, Menu, X, Volume2, Video, Camera, Image, Archive, History, Scroll, Globe2, Compass, Map, Presentation, MessageSquare, UserCheck, UserPlus, Users2, VideoIcon, Mic, MicOff, VideoOff, Share, Link, ExternalLink, Copy, Clipboard, Save, Trash2, Edit3, MoreHorizontal, MoreVertical, ChevronDown, ChevronUp, ChevronLeft, ChevronRight as ChevronRightIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Users, Award, Clock, Calendar, Target, Lightbulb, Star, Coffee, Heart, CheckCircle, BookOpen, Building, MapPin, Phone, Mail, Activity, Shield, Settings, Wifi, Car, Monitor, User, TrendingUp, ChevronRight, ArrowRight, Gamepad2, Music, Pizza, Dumbbell, Tv, Headphones, Utensils, Laptop, Smartphone, Tablet, Smile, Zap, Trophy, Medal, Flag, MessageCircle, Share2, Download, Upload, Eye, FileText, Search, Menu, X, Volume2, Video, Camera, Image, Archive, History, Scroll, Globe2, Compass, Map, Presentation, MessageSquare, UserCheck, UserPlus, Users2, VideoIcon, Mic, MicOff, VideoOff, Share, Link, ExternalLink, Copy, Clipboard, Save, Trash2, Edit3, MoreHorizontal, MoreVertical, ChevronDown, ChevronUp, ChevronLeft, ChevronRight as ChevronRightIcon, Play } from "lucide-react"
 
 export default function StudentsCommonRoomPage() {
   const [activeSection, setActiveSection] = useState('overview')
@@ -112,6 +114,94 @@ export default function StudentsCommonRoomPage() {
       features: ["Microwave ovens", "Refrigerators", "Dining tables", "Water dispensers", "Coffee machines", "Cleaning supplies"],
       capacity: "35 students",
       hours: "7:00 AM - 10:00 PM"
+    }
+  ]
+
+  const galleryItems = [
+    {
+      id: 1,
+      type: "image",
+      title: "Study Zone Interior",
+      description: "Modern study spaces with comfortable seating and natural lighting",
+      thumbnail: "/gallery/study-zone.jpg",
+      fullImage: "/gallery/study-zone-full.jpg",
+      category: "academic"
+    },
+    {
+      id: 2,
+      type: "video",
+      title: "Student Activities Tour",
+      description: "Virtual tour of student activities and events",
+      thumbnail: "/gallery/activities-tour-thumb.jpg",
+      videoUrl: "/videos/student-activities.mp4",
+      duration: "3:30",
+      category: "activities"
+    },
+    {
+      id: 3,
+      type: "image",
+      title: "Gaming Area",
+      description: "State-of-the-art gaming and entertainment facilities",
+      thumbnail: "/gallery/gaming-area.jpg",
+      fullImage: "/gallery/gaming-area-full.jpg",
+      category: "recreation"
+    },
+    {
+      id: 4,
+      type: "video",
+      title: "Student Testimonials",
+      description: "What students say about their common room experience",
+      thumbnail: "/gallery/testimonials-thumb.jpg",
+      videoUrl: "/videos/student-testimonials.mp4",
+      duration: "4:15",
+      category: "testimonials"
+    },
+    {
+      id: 5,
+      type: "image",
+      title: "Relaxation Lounge",
+      description: "Comfortable spaces for relaxation and social interaction",
+      thumbnail: "/gallery/relaxation-lounge.jpg",
+      fullImage: "/gallery/relaxation-lounge-full.jpg",
+      category: "wellness"
+    },
+    {
+      id: 6,
+      type: "video",
+      title: "Facilities Overview",
+      description: "Complete overview of all common room facilities",
+      thumbnail: "/gallery/facilities-overview-thumb.jpg",
+      videoUrl: "/videos/facilities-overview.mp4",
+      duration: "5:45",
+      category: "tour"
+    },
+    {
+      id: 7,
+      type: "image",
+      title: "Creative Studio",
+      description: "Creative space for artistic and multimedia projects",
+      thumbnail: "/gallery/creative-studio.jpg",
+      fullImage: "/gallery/creative-studio-full.jpg",
+      category: "creative"
+    },
+    {
+      id: 8,
+      type: "image",
+      title: "Fitness Corner",
+      description: "Wellness and fitness facilities for students",
+      thumbnail: "/gallery/fitness-corner.jpg",
+      fullImage: "/gallery/fitness-corner-full.jpg",
+      category: "fitness"
+    },
+    {
+      id: 9,
+      type: "video",
+      title: "Event Highlights",
+      description: "Highlights from recent student events and activities",
+      thumbnail: "/gallery/event-highlights-thumb.jpg",
+      videoUrl: "/videos/event-highlights.mp4",
+      duration: "2:20",
+      category: "events"
     }
   ]
 
@@ -283,35 +373,35 @@ export default function StudentsCommonRoomPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
+      <div className="bg-[#E0E6E4]">
         <div className="responsive-container-full py-20">
           <div className="text-center text-white">
             <div className="mb-8">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-lg rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users className="w-10 h-10 text-white" />
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4">{commonRoomInfo.name}</h1>
-              <p className="text-xl md:text-2xl mb-6 max-w-4xl mx-auto opacity-90">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-700">{commonRoomInfo.name}</h1>
+              <p className="text-xl md:text-2xl mb-6 max-w-4xl mx-auto opacity-90 text-gray-600">
                 {commonRoomInfo.tagline}
               </p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">{commonRoomInfo.established}</div>
-                <div className="text-lg font-medium">Established</div>
+                <div className="text-3xl font-bold mb-2 text-gray-700">{commonRoomInfo.established}</div>
+                <div className="text-lg font-medium text-gray-500">Established</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">{commonRoomInfo.coordinator}</div>
-                <div className="text-lg font-medium">Coordinator</div>
+                <div className="text-3xl font-bold mb-2 text-gray-700">{commonRoomInfo.coordinator}</div>
+                <div className="text-lg font-medium text-gray-500">Coordinator</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">{commonRoomInfo.students}</div>
-                <div className="text-lg font-medium">Students</div>
+                <div className="text-3xl font-bold text-gray-700 mb-2">{commonRoomInfo.students}</div>
+                <div className="text-lg font-medium text-gray-500">Students</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">8</div>
-                <div className="text-lg font-medium">Activity Zones</div>
+                <div className="text-3xl font-bold text-gray-700 mb-2">8</div>
+                <div className="text-lg font-medium text-gray-500">Activity Zones</div>
               </div>
             </div>
           </div>
@@ -413,6 +503,62 @@ export default function StudentsCommonRoomPage() {
                           <span className="font-semibold">Participants:</span>
                           <span>{activity.participants}</span>
                         </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Gallery Section */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Gallery & Videos</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {galleryItems.map(item => (
+                <Card key={item.id} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="relative mb-4">
+                      <img 
+                        src={item.thumbnail} 
+                        alt={item.title}
+                        className="w-full h-48 object-cover rounded-lg mb-4"
+                      />
+                      <div className="absolute top-2 right-2">
+                        {item.type === "video" ? (
+                          <Badge className="bg-red-500 text-white">
+                            <Video className="w-3 h-3 mr-1" />
+                            {item.duration}
+                          </Badge>
+                        ) : (
+                          <Badge className="bg-blue-500 text-white">
+                            <Image className="w-3 h-3 mr-1" />
+                            Image
+                          </Badge>
+                        )}
+                      </div>
+                      <div className="absolute inset-0 bg-black/40 rounded-lg flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        {item.type === "video" ? (
+                          <Button className="bg-white/90 hover:bg-white text-gray-800 rounded-full p-4">
+                            <Play className="w-6 h-6" />
+                          </Button>
+                        ) : (
+                          <Button className="bg-white/90 hover:bg-white text-gray-800 rounded-full p-4">
+                            <Eye className="w-6 h-6" />
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-800 mb-2">{item.title}</h3>
+                      <p className="text-sm text-gray-600 mb-4">{item.description}</p>
+                      <div className="flex justify-between items-center">
+                        <Badge variant="outline" className="text-xs">
+                          {item.category}
+                        </Badge>
+                        <Button variant="outline" size="sm">
+                          {item.type === "video" ? "Watch Video" : "View Image"}
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
