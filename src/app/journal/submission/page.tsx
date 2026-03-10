@@ -54,6 +54,7 @@ import {
 
 export default function JournalSubmissionPage() {
   const [currentStep, setCurrentStep] = useState(1)
+  const [showHelpModal, setShowHelpModal] = useState("")
   const [formData, setFormData] = useState({
     manuscriptType: "",
     title: "",
@@ -148,6 +149,127 @@ export default function JournalSubmissionPage() {
   const handleStepClick = (stepId: number) => {
     if (stepId <= currentStep || stepId === currentStep + 1) {
       setCurrentStep(stepId)
+    }
+  }
+
+  const getHelpContent = (type: string) => {
+    switch (type) {
+      case "guidelines":
+        return {
+          title: "Submission Guidelines",
+          content: (
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Manuscript Requirements</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Original work not published elsewhere</li>
+                  <li>• Double-spaced, 12-point Times New Roman font</li>
+                  <li>• Maximum word count: 4000 for original research</li>
+                  <li>• Abstract: 250-300 words</li>
+                  <li>• References in Vancouver style</li>
+                  <li>• High-resolution figures (300 DPI)</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">File Formats</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Manuscript: .doc, .docx, .pdf (Max 10MB)</li>
+                  <li>• Figures: .jpg, .png, .gif (Max 5MB each)</li>
+                  <li>• Tables: .xlsx, .csv (Max 2MB each)</li>
+                  <li>• Supplementary: .pdf, .zip (Max 20MB)</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Review Process</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Initial editorial screening (1-2 weeks)</li>
+                  <li>• Peer review process (4-6 weeks)</li>
+                  <li>• Author revision period (2-4 weeks)</li>
+                  <li>• Final decision (6-8 weeks total)</li>
+                </ul>
+              </div>
+            </div>
+          )
+        }
+      case "support":
+        return {
+          title: "Contact Support",
+          content: (
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Editorial Office</h4>
+                <div className="text-sm text-gray-600 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    <span>editorial@medicaljournal.edu</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    <span>+1 (234) 567-8900</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    <span>Monday-Friday, 9:00 AM - 5:00 PM EST</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Common Issues</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Submission system problems</li>
+                  <li>• File upload issues</li>
+                  <li>• Account access problems</li>
+                  <li>• Publication timeline questions</li>
+                  <li>• Open access policies</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Response Time</h4>
+                <p className="text-sm text-gray-600">
+                  We typically respond to inquiries within 24-48 hours during business days.
+                </p>
+              </div>
+            </div>
+          )
+        }
+      case "resources":
+        return {
+          title: "Author Resources",
+          content: (
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Writing Resources</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Scientific Writing Guide</a></li>
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Abstract Writing Tips</a></li>
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Reference Management</a></li>
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Figure Preparation</a></li>
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Statistical Guidelines</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Ethical Guidelines</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Publication Ethics</a></li>
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Plagiarism Policy</a></li>
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Author Guidelines</a></li>
+                  <li>• <a href="#" className="text-blue-600 hover:underline">Data Sharing</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Workshops & Training</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Academic Writing Workshop</li>
+                  <li>• Peer Review Process Training</li>
+                  <li>• Open Access Publishing</li>
+                  <li>• Research Impact Metrics</li>
+                </ul>
+              </div>
+            </div>
+          )
+        }
+      default:
+        return { title: "", content: null }
     }
   }
 
@@ -767,15 +889,30 @@ export default function JournalSubmissionPage() {
           <CardContent className="p-4">
             <h3 className="font-semibold text-gray-800 mb-3">Quick Help</h3>
             <div className="space-y-2">
-              <Button variant="ghost" size="sm" className="w-full justify-start">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-full justify-start"
+                onClick={() => setShowHelpModal("guidelines")}
+              >
                 <FileText className="w-4 h-4 mr-2" />
                 Submission Guidelines
               </Button>
-              <Button variant="ghost" size="sm" className="w-full justify-start">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-full justify-start"
+                onClick={() => setShowHelpModal("support")}
+              >
                 <MessageSquare className="w-4 h-4 mr-2" />
                 Contact Support
               </Button>
-              <Button variant="ghost" size="sm" className="w-full justify-start">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-full justify-start"
+                onClick={() => setShowHelpModal("resources")}
+              >
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Author Resources
               </Button>
@@ -783,6 +920,36 @@ export default function JournalSubmissionPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Help Modal */}
+      {showHelpModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <Card className="w-full max-w-2xl max-h-[80vh] overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle className="text-xl">
+                {getHelpContent(showHelpModal).title}
+              </CardTitle>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowHelpModal("")}
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </CardHeader>
+            <CardContent className="overflow-y-auto max-h-[60vh]">
+              {getHelpContent(showHelpModal).content}
+            </CardContent>
+            <div className="p-6 border-t border-gray-200">
+              <div className="flex justify-end">
+                <Button onClick={() => setShowHelpModal("")}>
+                  Close
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
     </div>
   )
 }
