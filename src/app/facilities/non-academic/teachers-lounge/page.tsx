@@ -242,7 +242,7 @@ export default function TeachersLoungePage() {
       {/* Hero Section */}
       <div className="bg-[#E0E6E4]">
         <div className="responsive-container-full py-20">
-          <div className="text-center text-gray-700">
+          <div className="flex flex-col items-center justify-center text-center text-gray-700">
             <div className="mb-8">
               <div className="w-20 h-20 bg-black/20 backdrop-blur-lg rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users className="w-10 h-10 text-white" />
@@ -253,7 +253,7 @@ export default function TeachersLoungePage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 w-full max-w-6xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-700 mb-2">{loungeInfo.established}</div>
                 <div className="text-lg font-medium">Established</div>
