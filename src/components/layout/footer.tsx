@@ -6,9 +6,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="responsive-container-full section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {/* College Info */}
-          <div>
+          <div className="xl:col-span-1">
             <div className="flex items-center space-x-2 mb-3 sm:mb-4">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm sm:text-xl">MC</span>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="xl:col-span-1">
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Links</h4>
             <ul className="space-y-1 sm:space-y-2">
               <li><Link href="/admission/local" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Admission</Link></li>
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="xl:col-span-1">
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact Info</h4>
             <div className="space-y-2 sm:space-y-3">
               <div className="flex items-start space-x-2 sm:space-x-3">
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Newsletter */}
-          <div>
+          <div className="xl:col-span-1">
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Newsletter</h4>
             <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">
               Subscribe to get updates on admissions, events, and medical news.
