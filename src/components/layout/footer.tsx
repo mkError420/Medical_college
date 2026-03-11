@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact Info</h4>
             <div className="space-y-2 sm:space-y-3">
               <div className="flex items-start space-x-2 sm:space-x-3">
-                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-1 flex-shrink-0" />
+                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-[#10651E] mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300 text-sm sm:text-base">Medical College Road</p>
                   <p className="text-gray-300 text-sm sm:text-base">Dhaka 1234, Bangladesh</p>
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
               />
               <button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary-dark text-white font-medium py-2 px-3 sm:px-4 rounded-lg transition-colors text-sm sm:text-base"
+                className="w-full bg-gray-800 text-white hover:bg-[#FFFFFF] hover:text-black font-medium py-2 px-3 sm:px-4 rounded-lg transition-colors text-sm sm:text-base"
               >
                 Subscribe
               </button>
@@ -116,13 +116,13 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 sm:gap-4 max-w-7xl mx-auto">
             <div className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
-              © 2024 Medical College & Hospital. All rights reserved.
+              © {new Date().getFullYear()} RCMC Medical College & Hospital. All rights reserved.
             </div>
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm">
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">Terms of Service</Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">Sitemap</Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors">Accessibility</Link>
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="text-gray-400 hover:text-primary transition-colors">Terms of Service</Link>
+              <Link href="/sitemap" className="text-gray-400 hover:text-primary transition-colors">Sitemap</Link>
+              <Link href="/accessibility" className="text-gray-400 hover:text-primary transition-colors">Accessibility</Link>
             </div>
           </div>
         </div>

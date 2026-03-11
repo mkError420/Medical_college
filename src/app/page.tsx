@@ -171,12 +171,12 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-highlight">
-                  <Link href="/admission" className="flex items-center">
+                  <Link href="/admission/local/mbbs-info" className="flex items-center">
                     Apply for Admission
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-primary hover:bg-highlight hover:text-darkgreen">
-                  <Link href="/appointment" className="flex items-center">
+                  <Link href="/hospital/doctors" className="flex items-center">
                     Book Appointment
                   </Link>
                 </Button>
@@ -452,7 +452,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/departments">
+            <Link href="/departments/phase-1/general-info">
               <Button size="lg" className="bg-primary hover:bg-primary-dark">
                 View All Departments
               </Button>
@@ -570,7 +570,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/notice-board">
+            <Link href="/notice-board/overview">
               <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
                 View All News & Events
               </Button>

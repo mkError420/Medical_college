@@ -772,10 +772,425 @@ export default function HospitalDoctorsPage() {
 
                         {/* Book Appointment Button - Bottom of Card */}
                         <div className="border-t pt-4">
-                          <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                            <Calendar className="h-4 w-4" />
-                            Book Appointment
-                          </button>
+                          <div className="grid grid-cols-2 gap-3">
+                            <button className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 text-white rounded-lg hover:bg-[#F9FAFB] hover:text-black transition-colors font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                              <Calendar className="h-4 w-4" />
+                              Book Appointment
+                            </button>
+                            <button 
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                // Create enhanced CV content as HTML for PDF conversion
+                                const cvContent = `
+                                  <!DOCTYPE html>
+                                  <html>
+                                  <head>
+                                    <title>${doctor.name} - Professional Profile</title>
+                                    <style>
+                                      @page {
+                                        margin: 20mm;
+                                        size: A4;
+                                      }
+                                      body { 
+                                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                                        line-height: 1.6; 
+                                        margin: 0; 
+                                        padding: 0;
+                                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                      }
+                                      .container {
+                                        max-width: 210mm;
+                                        margin: 0 auto;
+                                        background: white;
+                                        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                                      }
+                                      .header { 
+                                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                        color: white;
+                                        padding: 40px;
+                                        text-align: center;
+                                        position: relative;
+                                        overflow: hidden;
+                                      }
+                                      .header::before {
+                                        content: '';
+                                        position: absolute;
+                                        top: -50%;
+                                        right: -50%;
+                                        width: 200%;
+                                        height: 200%;
+                                        background: repeating-linear-gradient(
+                                          45deg,
+                                          transparent,
+                                          transparent 10px,
+                                          rgba(255,255,255,0.05) 10px,
+                                          rgba(255,255,255,0.05) 20px
+                                        );
+                                      }
+                                      .profile-section {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 30px;
+                                        position: relative;
+                                        z-index: 1;
+                                      }
+                                      .profile-image {
+                                        width: 120px;
+                                        height: 120px;
+                                        border-radius: 50%;
+                                        background: white;
+                                        padding: 5px;
+                                        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                                      }
+                                      .profile-info {
+                                        flex: 1;
+                                        text-align: left;
+                                      }
+                                      .name { 
+                                        font-size: 32px; 
+                                        font-weight: 700; 
+                                        margin-bottom: 8px;
+                                        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                                      }
+                                      .title { 
+                                        font-size: 20px; 
+                                        font-weight: 300;
+                                        margin-bottom: 15px;
+                                        opacity: 0.95;
+                                      }
+                                      .department {
+                                        display: inline-block;
+                                        background: rgba(255,255,255,0.2);
+                                        padding: 8px 16px;
+                                        border-radius: 20px;
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        backdrop-filter: blur(10px);
+                                      }
+                                      .main-content {
+                                        padding: 40px;
+                                      }
+                                      .section { 
+                                        margin-bottom: 35px;
+                                        page-break-inside: avoid;
+                                      }
+                                      .section-title { 
+                                        font-size: 18px; 
+                                        font-weight: 700; 
+                                        margin-bottom: 15px; 
+                                        color: #2d3748;
+                                        border-bottom: 3px solid #667eea;
+                                        padding-bottom: 8px;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 10px;
+                                      }
+                                      .section-title::before {
+                                        content: '';
+                                        width: 5px;
+                                        height: 20px;
+                                        background: #667eea;
+                                        border-radius: 3px;
+                                      }
+                                      .info-grid {
+                                        display: grid;
+                                        grid-template-columns: repeat(2, 1fr);
+                                        gap: 20px;
+                                        margin-bottom: 20px;
+                                      }
+                                      .info-item {
+                                        background: #f8fafc;
+                                        padding: 15px;
+                                        border-radius: 8px;
+                                        border-left: 4px solid #667eea;
+                                      }
+                                      .info-label {
+                                        font-size: 12px;
+                                        color: #718096;
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.5px;
+                                        margin-bottom: 5px;
+                                        font-weight: 600;
+                                      }
+                                      .info-value {
+                                        font-size: 14px;
+                                        color: #2d3748;
+                                        font-weight: 500;
+                                      }
+                                      .contact-info { 
+                                        background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+                                        padding: 25px; 
+                                        border-radius: 12px;
+                                        display: grid;
+                                        grid-template-columns: repeat(2, 1fr);
+                                        gap: 20px;
+                                      }
+                                      .contact-item {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 12px;
+                                      }
+                                      .contact-icon {
+                                        width: 40px;
+                                        height: 40px;
+                                        background: #667eea;
+                                        color: white;
+                                        border-radius: 50%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        font-size: 16px;
+                                      }
+                                      .education-item, .expertise-item {
+                                        background: #f8fafc;
+                                        padding: 20px;
+                                        border-radius: 8px;
+                                        margin-bottom: 15px;
+                                        border-left: 4px solid #764ba2;
+                                      }
+                                      .degree {
+                                        font-weight: 700;
+                                        color: #2d3748;
+                                        font-size: 16px;
+                                        margin-bottom: 5px;
+                                      }
+                                      .institution {
+                                        color: #4a5568;
+                                        font-size: 14px;
+                                        margin-bottom: 3px;
+                                      }
+                                      .year {
+                                        color: #718096;
+                                        font-size: 12px;
+                                        font-style: italic;
+                                      }
+                                      .expertise-list {
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                        gap: 10px;
+                                      }
+                                      .expertise-tag {
+                                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                        color: white;
+                                        padding: 8px 16px;
+                                        border-radius: 20px;
+                                        font-size: 12px;
+                                        font-weight: 500;
+                                      }
+                                      .stats-grid {
+                                        display: grid;
+                                        grid-template-columns: repeat(4, 1fr);
+                                        gap: 20px;
+                                        margin-bottom: 30px;
+                                      }
+                                      .stat-card {
+                                        background: white;
+                                        border: 2px solid #e2e8f0;
+                                        border-radius: 12px;
+                                        padding: 20px;
+                                        text-align: center;
+                                        transition: transform 0.2s;
+                                      }
+                                      .stat-number {
+                                        font-size: 28px;
+                                        font-weight: 700;
+                                        color: #667eea;
+                                        margin-bottom: 5px;
+                                      }
+                                      .stat-label {
+                                        font-size: 12px;
+                                        color: #718096;
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.5px;
+                                      }
+                                      .bio-section {
+                                        background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+                                        padding: 25px;
+                                        border-radius: 12px;
+                                        font-style: italic;
+                                        color: #4a5568;
+                                        line-height: 1.8;
+                                      }
+                                      .footer {
+                                        background: #2d3748;
+                                        color: white;
+                                        padding: 20px;
+                                        text-align: center;
+                                        font-size: 12px;
+                                      }
+                                      @media print {
+                                        body { background: none; }
+                                        .container { box-shadow: none; }
+                                      }
+                                    </style>
+                                  </head>
+                                  <body>
+                                    <div class="container">
+                                      <div class="header">
+                                        <div class="profile-section">
+                                          <div class="profile-image">
+                                            <img src="https://randomuser.me/api/portraits/med/${doctor.id === '4' ? 'women' : 'men'}/${doctor.id === '1' ? '32' : doctor.id === '2' ? '65' : doctor.id === '3' ? '45' : doctor.id === '4' ? '44' : doctor.id === '5' ? '67' : '75'}.jpg" 
+                                                 style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+                                          </div>
+                                          <div class="profile-info">
+                                            <div class="name">${doctor.name}</div>
+                                            <div class="title">${doctor.title}</div>
+                                            <div class="department">${doctor.department}</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                      <div class="main-content">
+                                        <div class="stats-grid">
+                                          <div class="stat-card">
+                                            <div class="stat-number">${doctor.experience}</div>
+                                            <div class="stat-label">Years Experience</div>
+                                          </div>
+                                          <div class="stat-card">
+                                            <div class="stat-number">${doctor.patients.toLocaleString()}</div>
+                                            <div class="stat-label">Patients Treated</div>
+                                          </div>
+                                          <div class="stat-card">
+                                            <div class="stat-number">${doctor.publications}</div>
+                                            <div class="stat-label">Publications</div>
+                                          </div>
+                                          <div class="stat-card">
+                                            <div class="stat-number">${doctor.rating}★</div>
+                                            <div class="stat-label">Rating</div>
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="section">
+                                          <div class="section-title">Professional Summary</div>
+                                          <div class="bio-section">
+                                            ${doctor.bio}
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="section">
+                                          <div class="section-title">Contact Information</div>
+                                          <div class="contact-info">
+                                            <div class="contact-item">
+                                              <div class="contact-icon">📞</div>
+                                              <div>
+                                                <div class="info-label">Phone</div>
+                                                <div class="info-value">${doctor.contact.phone}</div>
+                                              </div>
+                                            </div>
+                                            <div class="contact-item">
+                                              <div class="contact-icon">✉️</div>
+                                              <div>
+                                                <div class="info-label">Email</div>
+                                                <div class="info-value">${doctor.contact.email}</div>
+                                              </div>
+                                            </div>
+                                            <div class="contact-item">
+                                              <div class="contact-icon">🏥</div>
+                                              <div>
+                                                <div class="info-label">Chamber</div>
+                                                <div class="info-value">${doctor.contact.chamber}</div>
+                                              </div>
+                                            </div>
+                                            <div class="contact-item">
+                                              <div class="contact-icon">📍</div>
+                                              <div>
+                                                <div class="info-label">Address</div>
+                                                <div class="info-value">${doctor.contact.address}</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="section">
+                                          <div class="section-title">Consultation Details</div>
+                                          <div class="info-grid">
+                                            <div class="info-item">
+                                              <div class="info-label">Available Days</div>
+                                              <div class="info-value">${doctor.consultation.days.join(', ')}</div>
+                                            </div>
+                                            <div class="info-item">
+                                              <div class="info-label">Consultation Time</div>
+                                              <div class="info-value">${doctor.consultation.time}</div>
+                                            </div>
+                                            <div class="info-item">
+                                              <div class="info-label">Consultation Fee</div>
+                                              <div class="info-value">${doctor.consultation.fees}</div>
+                                            </div>
+                                            <div class="info-item">
+                                              <div class="info-label">Appointment Required</div>
+                                              <div class="info-value">${doctor.consultation.appointmentRequired ? 'Yes' : 'No'}</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="section">
+                                          <div class="section-title">Educational Background</div>
+                                          ${doctor.education.map(edu => 
+                                            `<div class="education-item">
+                                              <div class="degree">${edu.degree}</div>
+                                              <div class="institution">${edu.institution}</div>
+                                              <div class="year">${edu.year}</div>
+                                            </div>`
+                                          ).join('')}
+                                        </div>
+                                        
+                                        <div class="section">
+                                          <div class="section-title">Areas of Expertise</div>
+                                          <div class="expertise-list">
+                                            ${doctor.expertise.map(expertise => 
+                                              `<div class="expertise-tag">${expertise}</div>`
+                                            ).join('')}
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="section">
+                                          <div class="section-title">Professional Qualifications</div>
+                                          <div class="info-grid">
+                                            ${doctor.qualifications.map(qual => 
+                                              `<div class="info-item">
+                                                <div class="info-value">${qual}</div>
+                                              </div>`
+                                            ).join('')}
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="section">
+                                          <div class="section-title">Languages Spoken</div>
+                                          <div class="expertise-list">
+                                            ${doctor.languages.map(lang => 
+                                              `<div class="expertise-tag" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);">${lang}</div>`
+                                            ).join('')}
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                      <div class="footer">
+                                        <div>Generated on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                                        <div style="margin-top: 5px;">Rangpur Community Medical College Hospital</div>
+                                      </div>
+                                    </div>
+                                  </body>
+                                  </html>
+                                `;
+                                
+                                // Create and download PDF using browser's print functionality
+                                const printWindow = window.open('', '_blank');
+                                if (printWindow) {
+                                  printWindow.document.write(cvContent);
+                                  printWindow.document.close();
+                                  printWindow.focus();
+                                  
+                                  // Wait for content to load, then trigger print dialog
+                                  setTimeout(() => {
+                                    printWindow.print();
+                                  }, 1000);
+                                }
+                              }}
+                              className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                              <Download className="h-4 w-4" />
+                              Download CV
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1053,18 +1468,428 @@ export default function HospitalDoctorsPage() {
 
                 {/* Actions */}
                 <div className="flex gap-3 pt-4 border-t">
-                  <button className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                  <button className="flex-1 bg-gray-800 text-white py-3 px-6 rounded-lg hover:bg-[#F9FAFB] hover:text-black transition-colors font-medium">
                     <Calendar className="h-4 w-4 mr-2" />
                     Book Appointment
                   </button>
-                  <button className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                  <button 
+                    onClick={() => window.location.href = `tel:${selectedDoctor.contact.phone}`}
+                    className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
                     <MessageCircle className="h-4 w-4" />
                     Contact
                   </button>
-                  <button className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                  <button 
+                    onClick={() => {
+                      // Create enhanced CV content as HTML for PDF conversion
+                      const cvContent = `
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                          <title>${selectedDoctor.name} - Professional Profile</title>
+                          <style>
+                            @page {
+                              margin: 20mm;
+                              size: A4;
+                            }
+                            body { 
+                              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                              line-height: 1.6; 
+                              margin: 0; 
+                              padding: 0;
+                              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                            }
+                            .container {
+                              max-width: 210mm;
+                              margin: 0 auto;
+                              background: white;
+                              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                            }
+                            .header { 
+                              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                              color: white;
+                              padding: 40px;
+                              text-align: center;
+                              position: relative;
+                              overflow: hidden;
+                            }
+                            .header::before {
+                              content: '';
+                              position: absolute;
+                              top: -50%;
+                              right: -50%;
+                              width: 200%;
+                              height: 200%;
+                              background: repeating-linear-gradient(
+                                45deg,
+                                transparent,
+                                transparent 10px,
+                                rgba(255,255,255,0.05) 10px,
+                                rgba(255,255,255,0.05) 20px
+                              );
+                            }
+                            .profile-section {
+                              display: flex;
+                              align-items: center;
+                              gap: 30px;
+                              position: relative;
+                              z-index: 1;
+                            }
+                            .profile-image {
+                              width: 120px;
+                              height: 120px;
+                              border-radius: 50%;
+                              background: white;
+                              padding: 5px;
+                              box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                            }
+                            .profile-info {
+                              flex: 1;
+                              text-align: left;
+                            }
+                            .name { 
+                              font-size: 32px; 
+                              font-weight: 700; 
+                              margin-bottom: 8px;
+                              text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                            }
+                            .title { 
+                              font-size: 20px; 
+                              font-weight: 300;
+                              margin-bottom: 15px;
+                              opacity: 0.95;
+                            }
+                            .department {
+                              display: inline-block;
+                              background: rgba(255,255,255,0.2);
+                              padding: 8px 16px;
+                              border-radius: 20px;
+                              font-size: 14px;
+                              font-weight: 500;
+                              backdrop-filter: blur(10px);
+                            }
+                            .main-content {
+                              padding: 40px;
+                            }
+                            .section { 
+                              margin-bottom: 35px;
+                              page-break-inside: avoid;
+                            }
+                            .section-title { 
+                              font-size: 18px; 
+                              font-weight: 700; 
+                              margin-bottom: 15px; 
+                              color: #2d3748;
+                              border-bottom: 3px solid #667eea;
+                              padding-bottom: 8px;
+                              display: flex;
+                              align-items: center;
+                              gap: 10px;
+                            }
+                            .section-title::before {
+                              content: '';
+                              width: 5px;
+                              height: 20px;
+                              background: #667eea;
+                              border-radius: 3px;
+                            }
+                            .info-grid {
+                              display: grid;
+                              grid-template-columns: repeat(2, 1fr);
+                              gap: 20px;
+                              margin-bottom: 20px;
+                            }
+                            .info-item {
+                              background: #f8fafc;
+                              padding: 15px;
+                              border-radius: 8px;
+                              border-left: 4px solid #667eea;
+                            }
+                            .info-label {
+                              font-size: 12px;
+                              color: #718096;
+                              text-transform: uppercase;
+                              letter-spacing: 0.5px;
+                              margin-bottom: 5px;
+                              font-weight: 600;
+                            }
+                            .info-value {
+                              font-size: 14px;
+                              color: #2d3748;
+                              font-weight: 500;
+                            }
+                            .contact-info { 
+                              background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+                              padding: 25px; 
+                              border-radius: 12px;
+                              display: grid;
+                              grid-template-columns: repeat(2, 1fr);
+                              gap: 20px;
+                            }
+                            .contact-item {
+                              display: flex;
+                              align-items: center;
+                              gap: 12px;
+                            }
+                            .contact-icon {
+                              width: 40px;
+                              height: 40px;
+                              background: #667eea;
+                              color: white;
+                              border-radius: 50%;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              font-size: 16px;
+                            }
+                            .education-item, .expertise-item {
+                              background: #f8fafc;
+                              padding: 20px;
+                              border-radius: 8px;
+                              margin-bottom: 15px;
+                              border-left: 4px solid #764ba2;
+                            }
+                            .degree {
+                              font-weight: 700;
+                              color: #2d3748;
+                              font-size: 16px;
+                              margin-bottom: 5px;
+                            }
+                            .institution {
+                              color: #4a5568;
+                              font-size: 14px;
+                              margin-bottom: 3px;
+                            }
+                            .year {
+                              color: #718096;
+                              font-size: 12px;
+                              font-style: italic;
+                            }
+                            .expertise-list {
+                              display: flex;
+                              flex-wrap: wrap;
+                              gap: 10px;
+                            }
+                            .expertise-tag {
+                              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                              color: white;
+                              padding: 8px 16px;
+                              border-radius: 20px;
+                              font-size: 12px;
+                              font-weight: 500;
+                            }
+                            .stats-grid {
+                              display: grid;
+                              grid-template-columns: repeat(4, 1fr);
+                              gap: 20px;
+                              margin-bottom: 30px;
+                            }
+                            .stat-card {
+                              background: white;
+                              border: 2px solid #e2e8f0;
+                              border-radius: 12px;
+                              padding: 20px;
+                              text-align: center;
+                              transition: transform 0.2s;
+                            }
+                            .stat-number {
+                              font-size: 28px;
+                              font-weight: 700;
+                              color: #667eea;
+                              margin-bottom: 5px;
+                            }
+                            .stat-label {
+                              font-size: 12px;
+                              color: #718096;
+                              text-transform: uppercase;
+                              letter-spacing: 0.5px;
+                            }
+                            .bio-section {
+                              background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+                              padding: 25px;
+                              border-radius: 12px;
+                              font-style: italic;
+                              color: #4a5568;
+                              line-height: 1.8;
+                            }
+                            .footer {
+                              background: #2d3748;
+                              color: white;
+                              padding: 20px;
+                              text-align: center;
+                              font-size: 12px;
+                            }
+                            @media print {
+                              body { background: none; }
+                              .container { box-shadow: none; }
+                            }
+                          </style>
+                        </head>
+                        <body>
+                          <div class="container">
+                            <div class="header">
+                              <div class="profile-section">
+                                <div class="profile-image">
+                                  <img src="https://randomuser.me/api/portraits/med/${selectedDoctor.id === '4' ? 'women' : 'men'}/${selectedDoctor.id === '1' ? '32' : selectedDoctor.id === '2' ? '65' : selectedDoctor.id === '3' ? '45' : selectedDoctor.id === '4' ? '44' : selectedDoctor.id === '5' ? '67' : '75'}.jpg" 
+                                       style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+                                </div>
+                                <div class="profile-info">
+                                  <div class="name">${selectedDoctor.name}</div>
+                                  <div class="title">${selectedDoctor.title}</div>
+                                  <div class="department">${selectedDoctor.department}</div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="main-content">
+                              <div class="stats-grid">
+                                <div class="stat-card">
+                                  <div class="stat-number">${selectedDoctor.experience}</div>
+                                  <div class="stat-label">Years Experience</div>
+                                </div>
+                                <div class="stat-card">
+                                  <div class="stat-number">${selectedDoctor.patients.toLocaleString()}</div>
+                                  <div class="stat-label">Patients Treated</div>
+                                </div>
+                                <div class="stat-card">
+                                  <div class="stat-number">${selectedDoctor.publications}</div>
+                                  <div class="stat-label">Publications</div>
+                                </div>
+                                <div class="stat-card">
+                                  <div class="stat-number">${selectedDoctor.rating}★</div>
+                                  <div class="stat-label">Rating</div>
+                                </div>
+                              </div>
+                              
+                              <div class="section">
+                                <div class="section-title">Professional Summary</div>
+                                <div class="bio-section">
+                                  ${selectedDoctor.bio}
+                                </div>
+                              </div>
+                              
+                              <div class="section">
+                                <div class="section-title">Contact Information</div>
+                                <div class="contact-info">
+                                  <div class="contact-item">
+                                    <div class="contact-icon">📞</div>
+                                    <div>
+                                      <div class="info-label">Phone</div>
+                                      <div class="info-value">${selectedDoctor.contact.phone}</div>
+                                    </div>
+                                  </div>
+                                  <div class="contact-item">
+                                    <div class="contact-icon">✉️</div>
+                                    <div>
+                                      <div class="info-label">Email</div>
+                                      <div class="info-value">${selectedDoctor.contact.email}</div>
+                                    </div>
+                                  </div>
+                                  <div class="contact-item">
+                                    <div class="contact-icon">🏥</div>
+                                    <div>
+                                      <div class="info-label">Chamber</div>
+                                      <div class="info-value">${selectedDoctor.contact.chamber}</div>
+                                    </div>
+                                  </div>
+                                  <div class="contact-item">
+                                    <div class="contact-icon">📍</div>
+                                    <div>
+                                      <div class="info-label">Address</div>
+                                      <div class="info-value">${selectedDoctor.contact.address}</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div class="section">
+                                <div class="section-title">Consultation Details</div>
+                                <div class="info-grid">
+                                  <div class="info-item">
+                                    <div class="info-label">Available Days</div>
+                                    <div class="info-value">${selectedDoctor.consultation.days.join(', ')}</div>
+                                  </div>
+                                  <div class="info-item">
+                                    <div class="info-label">Consultation Time</div>
+                                    <div class="info-value">${selectedDoctor.consultation.time}</div>
+                                  </div>
+                                  <div class="info-item">
+                                    <div class="info-label">Consultation Fee</div>
+                                    <div class="info-value">${selectedDoctor.consultation.fees}</div>
+                                  </div>
+                                  <div class="info-item">
+                                    <div class="info-label">Appointment Required</div>
+                                    <div class="info-value">${selectedDoctor.consultation.appointmentRequired ? 'Yes' : 'No'}</div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div class="section">
+                                <div class="section-title">Educational Background</div>
+                                ${selectedDoctor.education.map(edu => 
+                                  `<div class="education-item">
+                                    <div class="degree">${edu.degree}</div>
+                                    <div class="institution">${edu.institution}</div>
+                                    <div class="year">${edu.year}</div>
+                                  </div>`
+                                ).join('')}
+                              </div>
+                              
+                              <div class="section">
+                                <div class="section-title">Areas of Expertise</div>
+                                <div class="expertise-list">
+                                  ${selectedDoctor.expertise.map(expertise => 
+                                    `<div class="expertise-tag">${expertise}</div>`
+                                  ).join('')}
+                                </div>
+                              </div>
+                              
+                              <div class="section">
+                                <div class="section-title">Professional Qualifications</div>
+                                <div class="info-grid">
+                                  ${selectedDoctor.qualifications.map(qual => 
+                                    `<div class="info-item">
+                                      <div class="info-value">${qual}</div>
+                                    </div>`
+                                  ).join('')}
+                                </div>
+                              </div>
+                              
+                              <div class="section">
+                                <div class="section-title">Languages Spoken</div>
+                                <div class="expertise-list">
+                                  ${selectedDoctor.languages.map(lang => 
+                                    `<div class="expertise-tag" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);">${lang}</div>`
+                                  ).join('')}
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="footer">
+                              <div>Generated on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                              <div style="margin-top: 5px;">Rangpur Community Medical College Hospital</div>
+                            </div>
+                          </div>
+                        </body>
+                        </html>
+                      `;
+                      
+                      // Create and download PDF using browser's print functionality
+                      const printWindow = window.open('', '_blank');
+                      if (printWindow) {
+                        printWindow.document.write(cvContent);
+                        printWindow.document.close();
+                        printWindow.focus();
+                        
+                        // Wait for content to load, then trigger print dialog
+                        setTimeout(() => {
+                          printWindow.print();
+                        }, 1000);
+                      }
+                    }}
+                    className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
                     <Download className="h-4 w-4" />
                     Download CV
-                  </button>
+                  </button>      
                 </div>
               </div>
             </div>
