@@ -139,9 +139,6 @@ export default function ForeignHelpDeskPage() {
         <div className="relative responsive-container-full py-20">
           <div className="max-w-4xl mx-auto text-center text-gray-600">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                <Globe className="w-10 h-10 text-white" />
-              </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Foreign Help Desk</h1>
             <p className="text-xl md:text-2xl text-gray-500 leading-relaxed mb-8">

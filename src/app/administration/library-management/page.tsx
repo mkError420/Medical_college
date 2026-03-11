@@ -146,9 +146,6 @@ export default function LibraryManagementPage() {
         <div className="relative responsive-container-full h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center text-white">
             <div className="flex justify-center mb-6">
-              <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                <BookOpen className="w-12 h-12 text-white" />
-              </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Library Management</h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
