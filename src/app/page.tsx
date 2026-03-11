@@ -220,7 +220,7 @@ Nurturing tomorrow's healthcare leaders today.`,
         <div className="absolute inset-0 bg-black/20"></div>
         
         {/* Carousel Images */}
-        <div className="relative min-h-[420px] sm:min-h-[520px] lg:min-h-[620px]">
+        <div className="relative min-h-[300px] xs:min-h-[350px] sm:min-h-[420px] md:min-h-[480px] lg:min-h-[580px] xl:min-h-[680px] 2xl:min-h-[720px] w-full">
           {banners.map((banner, index) => (
             <div
               key={banner.id}
@@ -231,38 +231,18 @@ Nurturing tomorrow's healthcare leaders today.`,
               <img
                 src={banner.image}
                 alt={banner.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
+                style={{
+                  objectPosition: 'center',
+                  minHeight: '100%',
+                  minWidth: '100%'
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
             </div>
           ))}
         </div>
 
-        {/* Carousel Content */}
-        <div className="absolute inset-0 flex items-center justify-center z-10 px-4 sm:px-6">
-          <div className="responsive-container-full py-10 sm:py-14 lg:py-16">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-white drop-shadow-lg">
-                {banners[currentSlide].title}
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-highlight drop-shadow">
-                {banners[currentSlide].description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-highlight">
-                  <Link href="/admission/local/mbbs-info" className="flex items-center">
-                    Apply for Admission
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-primary hover:bg-highlight hover:text-darkgreen">
-                  <Link href="/hospital/doctors" className="flex items-center">
-                    Book Appointment
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Carousel Navigation */}
         <button
@@ -296,17 +276,18 @@ Nurturing tomorrow's healthcare leaders today.`,
       </section>
 
       {/* News Ticker */}
-      <section className="bg-[#EAEAEA] text-[#116C64] py-3 overflow-hidden">
+      <section className="bg-[#EAEAEA] text-[#116C64] py-2 sm:py-3 overflow-hidden">
         <div className="flex items-center">
-          <div className="bg-[#116C64]/10 px-4 py-2 flex items-center space-x-2 z-10 relative">
-            <Megaphone className="w-5 h-5 text-[#116C64]" />
-            <span className="font-bold text-sm sm:text-base text-[#116C64]">Latest News</span>
+          <div className="bg-[#116C64]/10 px-2 sm:px-4 py-1 sm:py-2 flex items-center space-x-1 sm:space-x-2 z-10 relative flex-shrink-0">
+            <Megaphone className="w-4 h-4 sm:w-5 sm:h-5 text-[#116C64]" />
+            <span className="font-bold text-xs sm:text-sm text-[#116C64] hidden xs:inline sm:inline">Latest News</span>
+            <span className="font-bold text-xs text-[#116C64] xs:hidden sm:hidden">News</span>
           </div>
           <div className="flex-1 overflow-hidden">
-            <div className="animate-ticker flex items-center space-x-8 whitespace-nowrap">
+            <div className="animate-ticker flex items-center space-x-4 sm:space-x-6 lg:space-x-8 whitespace-nowrap">
               {[...newsItems, ...newsItems].map((item, index) => (
-                <div key={`${item.id}-${index}`} className="flex items-center space-x-3 py-1">
-                  <span className={`px-2 py-1 text-xs font-semibold rounded ${
+                <div key={`${item.id}-${index}`} className="flex items-center space-x-2 sm:space-x-3 py-1">
+                  <span className={`px-1.5 py-0.5 sm:px-2 sm:py-1 text-xs font-semibold rounded ${
                     item.urgency === 'high' 
                       ? 'bg-[#116C64] text-white' 
                       : item.urgency === 'medium'
@@ -315,13 +296,27 @@ Nurturing tomorrow's healthcare leaders today.`,
                   }`}>
                     {item.type}
                   </span>
-                  <span className="text-sm sm:text-base">{item.title}</span>
+                  <span className="text-xs sm:text-sm sm:text-base truncate max-w-[200px] sm:max-w-none">{item.title}</span>
                   {item.urgency === 'high' && (
-                    <TrendingUp className="w-4 h-4 text-[#116C64]" />
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#116C64] flex-shrink-0" />
                   )}
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Banner Content Section */}
+      <section className="bg-[#F3F7F4] py-12 sm:py-16">
+        <div className="responsive-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {banners.map((banner) => (
+              <div key={banner.id} className="bg-gray-700 rounded-lg p-6 text-center hover:bg-gray-600 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{banner.title}</h3>
+                <p className="text-sm sm:text-base mb-4 text-white/90 line-clamp-3">{banner.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -724,14 +719,14 @@ Nurturing tomorrow's healthcare leaders today.`,
             <div className="sticky top-6 space-y-6">
               {/* Notice Board Widget */}
               <Card className="bg-white border-l-4 border-primary">
-                <CardHeader className="bg-primary/5 border-b">
+                <CardHeader className="bg-gray-700 border-b">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                      <Megaphone className="h-5 w-5 text-white" />
+                    <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                      <Megaphone className="h-5 w-5 text-red-500 animate-pulse" />
                     </div>
                     <div>
-                      <CardTitle className="text-xl text-primary">Notice Board</CardTitle>
-                      <CardDescription className="text-sm">Latest announcements & updates</CardDescription>
+                      <CardTitle className="text-xl text-white">Notice Board</CardTitle>
+                      <CardDescription className="text-sm text-gray-300">Latest announcements & updates</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -780,14 +775,14 @@ Nurturing tomorrow's healthcare leaders today.`,
 
               {/* Quick Links Widget */}
               <Card className="bg-white">
-                <CardHeader className="bg-primary/5 border-b">
+                <CardHeader className="bg-gray-700 border-b">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                      <ChevronDown className="h-5 w-5 text-white rotate-270" />
+                    <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                      <ChevronDown className="h-5 w-5 text-red-500 animate-pulse rotate-270" />
                     </div>
                     <div>
-                      <CardTitle className="text-xl text-primary">Quick Links</CardTitle>
-                      <CardDescription className="text-sm">Important resources</CardDescription>
+                      <CardTitle className="text-xl text-white">Quick Links</CardTitle>
+                      <CardDescription className="text-sm text-gray-300">Important resources</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -829,14 +824,14 @@ Nurturing tomorrow's healthcare leaders today.`,
 
               {/* Contact Info Widget */}
               <Card className="bg-white">
-                <CardHeader className="bg-primary/5 border-b">
+                <CardHeader className="bg-gray-700 border-b">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                      <Phone className="h-5 w-5 text-white" />
+                    <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                      <Phone className="h-5 w-5 text-red-500 animate-pulse" />
                     </div>
                     <div>
-                      <CardTitle className="text-xl text-primary">Contact Info</CardTitle>
-                      <CardDescription className="text-sm">Get in touch</CardDescription>
+                      <CardTitle className="text-xl text-white">Contact Info</CardTitle>
+                      <CardDescription className="text-sm text-gray-300">Get in touch</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -876,14 +871,14 @@ Nurturing tomorrow's healthcare leaders today.`,
 
               {/* Google Map Widget */}
               <Card className="bg-white">
-                <CardHeader className="bg-primary/5 border-b">
+                <CardHeader className="bg-gray-700 border-b">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-white" />
+                    <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-red-500 animate-pulse" />
                     </div>
                     <div>
-                      <CardTitle className="text-xl text-primary">Location</CardTitle>
-                      <CardDescription className="text-sm">Find us on map</CardDescription>
+                      <CardTitle className="text-xl text-white">Location</CardTitle>
+                      <CardDescription className="text-sm text-gray-300">Find us on map</CardDescription>
                     </div>
                   </div>
                 </CardHeader>

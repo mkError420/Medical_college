@@ -125,7 +125,13 @@
 
   @media (max-width: 768px) {
     .animate-ticker {
-      animation: ticker 10s linear infinite;
+      animation: ticker 15s linear infinite;
+    }
+  }
+
+  @media (max-width: 425px) {
+    .animate-ticker {
+      animation: ticker 20s linear infinite;
     }
   }
 
@@ -190,6 +196,13 @@
   @media (min-width: 769px) {
     .animate-notice-ticker {
       animation: notice-ticker 15s linear infinite;
+    }
+  }
+
+  /* Custom breakpoint for very small screens */
+  @media (min-width: 425px) {
+    .xs\:inline {
+      display: inline;
     }
   }
 }
