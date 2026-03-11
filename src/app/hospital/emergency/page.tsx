@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { Phone, PhoneCall, MapPin, Clock, Users, Calendar, Star, Award, Building, Bed, Shield, Heart, Brain, Eye, Stethoscope, Activity, ChevronRight, ArrowRight, CheckCircle, TrendingUp, BarChart3, FileText, Download, ExternalLink, User, PhoneCall as PhoneIcon, MessageCircle, Ambulance, AlertTriangle, Zap, HeartPulse, Timer, Radio, Wifi, Battery, Car, Helicopter, Anchor, Ship, Plane, Train, Bus, Truck, Motorcycle, Bike, UserCheck, Activity as ActivityIcon, AlertCircle, Bell, Volume2, ThermometerSun, Wind, Droplets, Gauge } from "lucide-react"
+import { Phone, PhoneCall, MapPin, Clock, Users, Star, Bed, Shield, Heart, Brain, Stethoscope, Activity, ArrowRight, CheckCircle, User, MessageCircle, Ambulance, AlertTriangle, Zap, HeartPulse, Timer, Radio, X } from "lucide-react"
 
 interface EmergencyStats {
   totalCases: number

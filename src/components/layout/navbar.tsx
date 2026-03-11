@@ -321,7 +321,7 @@ function MobileNavItem({
         <Link
           href={item.href}
           onClick={onLinkClick}
-          className="flex items-center py-2 sm:py-3 px-2 sm:px-3 text-xs sm:text-sm text-gray-700 hover:text-blue-600 hover:bg-highlight rounded-md transition-colors text-sm sm:text-base min-h-[44px]"
+          className="flex items-center py-2 sm:py-3 px-2 sm:px-3 text-xs sm:text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors text-sm sm:text-base min-h-[44px]"
         >
           {item.title}
         </Link>
@@ -330,7 +330,7 @@ function MobileNavItem({
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex w-full items-center justify-between py-2 sm:py-3 px-2 sm:px-3 text-left text-xs sm:text-sm font-semibold text-gray-900 hover:bg-highlight rounded-md transition-colors min-h-[44px]"
+            className="flex w-full items-center justify-between py-2 sm:py-3 px-2 sm:px-3 text-left text-xs sm:text-sm font-semibold text-gray-900 hover:bg-blue-50 rounded-md transition-colors min-h-[44px]"
             aria-expanded={isExpanded}
           >
             {item.title}
@@ -388,8 +388,8 @@ const Navbar: React.FC = () => {
       {/* Top Bar - Dark background */}
       <div className="hidden lg:block bg-gray-900 text-white py-2">
         <div className="responsive-container-full">
-          <div className="flex flex-wrap justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-6">
+          <div className="flex flex-wrap justify-center lg:justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0 max-w-7xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
               <a href="mailto:info@rcmc.edu.bd" className="flex items-center gap-2 hover:underline">
                 <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span className="hidden xs:inline text-xs sm:text-sm">info@rcmc.edu.bd</span>
@@ -401,7 +401,7 @@ const Navbar: React.FC = () => {
                 <span className="xs:hidden text-xs">Phone</span>
               </a>
             </div>
-            <div className="flex flex-wrap items-center gap-2 sm:gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
               <a href="#login" className="flex items-center gap-1 sm:gap-2 hover:underline">
                 <User className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span className="hidden xs:inline text-xs sm:text-sm">Login</span>
@@ -420,7 +420,7 @@ const Navbar: React.FC = () => {
       {/* Middle Bar - Logo and Contact Info */}
       <div className="hidden lg:block bg-white py-3 sm:py-4 border-b">
         <div className="responsive-container-full">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-4 max-w-7xl mx-auto">
             {/* Logo */}
             <div className="flex flex-col items-center lg:items-start">
               <div className="flex items-center gap-2 sm:gap-3">
@@ -457,7 +457,7 @@ const Navbar: React.FC = () => {
 
       {/* Main Navigation */}
       <nav className="bg-white shadow-md sticky top-0 z-40">
-        <div className="responsive-container-full">
+        <div className="w-full px-2 lg:px-3 xl:px-4">
           <div className="flex justify-between items-center h-12 sm:h-14 lg:h-16">
             {/* Mobile Menu Button */}
             <Button
@@ -490,7 +490,7 @@ const Navbar: React.FC = () => {
 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center justify-center flex-1 w-full">
-              <div className="flex items-center space-x-0 sm:space-x-0 lg:space-x-2 xl:space-x-3">
+              <div className="flex items-center space-x-2 lg:space-x-3.99 xl:space-x-6">
                 {navItems.map((item, index) => {
                   const isLastTwo = index >= navItems.length - 2
 
@@ -499,13 +499,13 @@ const Navbar: React.FC = () => {
                       {item.href ? (
                         <Link
                           href={item.href}
-                          className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
+                          className="flex items-center gap-0 px-1 lg:px-1.5 py-3 text-xs lg:text-xs xl:text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
                         >
-                          {item.title === "Home" && <Home className="h-4 w-4" style={{ color: '#26ABEE' }} />}
+                          {item.title === "Home" && <Home className="h-3 w-3" style={{ color: '#26ABEE' }} />}
                           {item.title}
                         </Link>
                       ) : (
-                        <button className="flex items-center gap-0 px-1 sm:px-2 py-3 text-xs sm:text-sm lg:text-sm xl:text-base text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
+                        <button className="flex items-center gap-0 px-1 lg:px-1.5 py-3 text-xs lg:text-xs xl:text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
                           {item.title}
                           {item.children && <span className="ml-1 text-gray-400 text-sm font-bold">+</span>}
                         </button>
@@ -515,19 +515,19 @@ const Navbar: React.FC = () => {
                       {item.children && (
                         <div
                           className={`absolute top-full mt-0 rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-all duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
-                            isLastTwo ? "left-0 lg:left-auto lg:right-0" : "left-0"
+                            isLastTwo ? "left-0 lg:left-auto lg:right-0 xl:right-0 2xl:right-0" : "left-0 lg:left-0 xl:left-0"
                           } ${
-                            item.title === "General Information" ? "w-96 sm:w-[28rem] lg:w-[34rem]" : "w-40 sm:w-44 lg:w-48"
+                            "w-44 sm:w-48 md:w-52 lg:w-56 xl:w-60 2xl:w-64"
                           }`}
                           style={{ backgroundColor: '#E7EFE8' }}
                         >
                           {/* Bridge area to prevent gap */}
                           <div className="absolute -top-2 left-0 right-0 h-2 bg-transparent" />
-                          <div className="py-2">
+                          <div className="py-1.5">
                             <div
                               className={
                                 item.title === "General Information"
-                                  ? "grid grid-cols-2 gap-x-3 gap-y-1 px-2 auto-rows-min"
+                                  ? "grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-1 px-2 auto-rows-min"
                                   : ""
                               }
                             >
@@ -536,14 +536,14 @@ const Navbar: React.FC = () => {
                                 {child.href ? (
                                   <Link
                                     href={child.href}
-                                    className={`block px-3 sm:px-4 py-2 text-sm text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
+                                    className={`block px-1.5 sm:px-2 py-1.5 text-xs text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
                                   >
                                     {child.title}
                                   </Link>
                                 ) : (
-                                  <div className="px-3 sm:px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer flex items-center justify-between">
+                                  <div className="px-1.5 sm:px-2 py-1.5 text-xs text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer flex items-center justify-between">
                                     <span>{child.title}</span>
-                                    {child.children && <span className="ml-2 text-gray-400 text-sm font-bold">+</span>}
+                                    {child.children && <span className="ml-2 text-gray-400 text-xs">+</span>}
                                   </div>
                                 )}
                                 
@@ -552,19 +552,19 @@ const Navbar: React.FC = () => {
                                   <div
                                     className={`absolute top-0 left-full ml-0 rounded-lg shadow-xl opacity-0 invisible translate-x-2 scale-[0.98] pointer-events-none transition-all duration-200 ease-out z-50 group-hover/submenu:opacity-100 group-hover/submenu:visible group-hover/submenu:translate-x-0 group-hover/submenu:scale-100 group-hover/submenu:pointer-events-auto ${
                                       isLastTwo ? "right-full mr-0 left-auto" : "left-full ml-0"
-                                    } min-w-[320px]`}
+                                    } min-w-[280px] md:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] 2xl:min-w-[360px]`}
                                     style={{ backgroundColor: '#E7EFE8' }}
                                   >
                                     {/* Bridge area to prevent gap */}
                                     <div className="absolute top-0 -left-2 bottom-0 w-2 bg-transparent" />
-                                    <div className="py-2">
-                                      <div className="grid grid-cols-2 gap-x-1 gap-y-1 px-1">
+                                    <div className="py-1.5">
+                                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-1 gap-y-0.5 px-1">
                                         {child.children.map((subChild, subChildIndex) => (
                                           <div key={subChildIndex} className="flex items-center space-x-0.5">
                                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-0.5" />
                                             <Link
                                               href={subChild.href || "#"}
-                                              className={`block px-3 sm:px-4 py-2 text-sm text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
+                                              className={`block px-2 sm:px-3 py-1.5 text-xs text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
                                             >
                                               {subChild.title}
                                             </Link>

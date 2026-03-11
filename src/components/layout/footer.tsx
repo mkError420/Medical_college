@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="responsive-container-full section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {/* College Info */}
           <div>
             <div className="flex items-center space-x-2 mb-3 sm:mb-4">
@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 sm:gap-4 max-w-7xl mx-auto">
             <div className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
               © 2024 Medical College & Hospital. All rights reserved.
             </div>

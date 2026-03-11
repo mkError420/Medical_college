@@ -764,7 +764,7 @@ export default function HospitalOPDSchedulePage() {
       {/* Statistics Bar */}
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-4">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div className="responsive-grid-6">
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 text-blue-600 font-semibold">
                 <CalendarIcon className="h-4 w-4" />
@@ -890,7 +890,7 @@ export default function HospitalOPDSchedulePage() {
         </div>
 
         {/* Results */}
-        <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-sm border">
             <div className="p-6 border-b">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -905,7 +905,7 @@ export default function HospitalOPDSchedulePage() {
 
             {/* Grid View */}
             {viewMode === "grid" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+              <div className="card-grid-responsive">
                 {Object.entries(groupedSchedules).map(([day, schedules]) => (
                   <div key={day} className="bg-white border rounded-2xl overflow-hidden">
                     <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 border-b">
