@@ -718,7 +718,7 @@ Nurturing tomorrow's healthcare leaders today.`,
           <div className="lg:col-span-3 bg-gray-300 p-4 rounded-lg">
             <div className="sticky top-6 space-y-6">
               {/* Image Section */}
-              <Card className="bg-white border-l-4 border-primary">
+              <Card className="bg-white border-l-4 border-primary lg:order-2 order-1 hidden lg:block">
                 <CardContent className="p-4">
                   <div className="space-y-4">
                     {/* First Image - Managing Director */}
@@ -726,14 +726,16 @@ Nurturing tomorrow's healthcare leaders today.`,
                       <img 
                         src="https://picsum.photos/seed/businessman-formal/400/250.jpg"
                         alt="Managing Director - Male Professional"
-                        className="w-full h-48 sm:h-56 object-cover rounded-lg"
+                        className="w-full h-40 sm:h-48 lg:h-56 object-cover rounded-lg"
                         onError={(e) => { e.currentTarget.src = 'https://picsum.photos/seed/professional-man-formal/400/250.jpg' }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                      {/* Text Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                        <p className="text-white font-semibold text-sm">Managing Director</p>
-                      </div>
+                    </div>
+                    {/* Text Outside Image */}
+                    <div className="mt-4">
+                      <p className="text-white font-semibold text-sm bg-black/50 px-3 py-2 rounded-lg inline-block">
+                        Managing Director
+                      </p>
                     </div>
                     
                     {/* Second Image - Chairman */}
@@ -741,12 +743,12 @@ Nurturing tomorrow's healthcare leaders today.`,
                       <img 
                         src="https://picsum.photos/seed/businesswoman-formal/400/250.jpg"
                         alt="Chairman - Female Professional"
-                        className="w-full h-48 sm:h-56 object-cover rounded-lg"
+                        className="w-full h-40 sm:h-48 lg:h-56 object-cover rounded-lg"
                         onError={(e) => { e.currentTarget.src = 'https://picsum.photos/seed/professional-woman-formal/400/250.jpg' }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                       {/* Text Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 lg:hidden xl:block">
                         <p className="text-white font-semibold text-sm">Chairman</p>
                       </div>
                     </div>
