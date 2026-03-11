@@ -44,14 +44,14 @@ const Footer: React.FC = () => {
           <div className="xl:col-span-1">
             <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Links</h4>
             <ul className="space-y-1 sm:space-y-2">
-              <li><Link href="/admission/local" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Admission</Link></li>
-              <li><Link href="/departments" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Departments</Link></li>
-              <li><Link href="/facilities" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Facilities</Link></li>
-              <li><Link href="/hospital/doctors" className="text-gray-300 hover:text-medical-blue transition-colors text-sm sm:text-base">Find Doctors</Link></li>
-              <li><Link href="/journal" className="text-gray-300 hover:text-medical-blue transition-colors text-sm sm:text-base">Medical Journal</Link></li>
-              <li><Link href="/library" className="text-gray-300 hover:text-medical-blue transition-colors text-sm sm:text-base">Library</Link></li>
-              <li><Link href="/notice-board" className="text-gray-300 hover:text-medical-blue transition-colors text-sm sm:text-base">Notice Board</Link></li>
-              <li><Link href="/administration/general/service-rules" className="text-gray-300 hover:text-medical-blue transition-colors text-sm sm:text-base">Career</Link></li>
+              <li><Link href="/admission/local/mbbs-info" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Admission</Link></li>
+              <li><Link href="/departments/phase-1/general-info" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Departments</Link></li>
+              <li><Link href="/facilities/academic/general" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Facilities</Link></li>
+              <li><Link href="/hospital/doctors" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Find Doctors</Link></li>
+              <li><Link href="/journal/archive" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Medical Journal</Link></li>
+              <li><Link href="/library/opac" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Library</Link></li>
+              <li><Link href="/notice-board/overview" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Notice Board</Link></li>
+              <li><Link href="/career" className="text-gray-300 hover:text-primary transition-colors text-sm sm:text-base">Career</Link></li>
             </ul>
           </div>
 

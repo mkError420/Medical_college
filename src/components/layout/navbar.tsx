@@ -385,79 +385,81 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top Bar - Dark background */}
-      <div className="hidden lg:block bg-gray-900 text-white py-2">
-        <div className="responsive-container-full">
-          <div className="flex flex-wrap justify-center lg:justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0 max-w-7xl mx-auto">
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
-              <a href="mailto:info@rcmc.edu.bd" className="flex items-center gap-2 hover:underline">
-                <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline text-xs sm:text-sm">info@rcmc.edu.bd</span>
-                <span className="xs:hidden text-xs">Email</span>
-              </a>
-              <a href="tel:+880123456789" className="flex items-center gap-2 hover:underline">
-                <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline text-xs sm:text-sm">+88-0123456789</span>
-                <span className="xs:hidden text-xs">Phone</span>
-              </a>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
-              <a href="#login" className="flex items-center gap-1 sm:gap-2 hover:underline">
-                <User className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline text-xs sm:text-sm">Login</span>
-                <span className="xs:hidden text-xs">Login</span>
-              </a>
-              <a href="#faq" className="flex items-center gap-1 sm:gap-2 hover:underline">
-                <HelpCircle className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline text-xs sm:text-sm">FAQ</span>
-                <span className="xs:hidden text-xs">FAQ</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Middle Bar - Logo and Contact Info */}
-      <div className="hidden lg:block bg-white py-3 sm:py-4 border-b">
-        <div className="responsive-container-full">
-          <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-4 max-w-7xl mx-auto">
-            {/* Logo */}
-            <div className="flex flex-col items-center lg:items-start">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg sm:text-xl">RCMC</span>
-                </div>
-                <div className="text-center lg:text-left">
-                  <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 leading-tight">
-                    Rangpur Community Medical College & Hospital
-                  </h1>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    An Institution of RANGPUR GROUP
-                  </p>
-                </div>
+      {/* Header Container - All sticky sections */}
+      <div className="sticky top-0 z-40">
+        {/* Top Bar - Dark background */}
+        <div className="hidden lg:block bg-gray-900 text-white py-2">
+          <div className="responsive-container-full">
+            <div className="flex flex-wrap justify-center lg:justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0 max-w-7xl mx-auto">
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
+                <a href="mailto:info@rcmc.edu.bd" className="flex items-center gap-2 hover:underline">
+                  <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden xs:inline text-xs sm:text-sm">info@rcmc.edu.bd</span>
+                  <span className="xs:hidden text-xs">Email</span>
+                </a>
+                <a href="tel:+880123456789" className="flex items-center gap-2 hover:underline">
+                  <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden xs:inline text-xs sm:text-sm">+88-0123456789</span>
+                  <span className="xs:hidden text-xs">Phone</span>
+                </a>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
+                <a href="#login" className="flex items-center gap-1 sm:gap-2 hover:underline">
+                  <User className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden xs:inline text-xs sm:text-sm">Login</span>
+                  <span className="xs:hidden text-xs">Login</span>
+                </a>
+                <a href="#faq" className="flex items-center gap-1 sm:gap-2 hover:underline">
+                  <HelpCircle className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden xs:inline text-xs sm:text-sm">FAQ</span>
+                  <span className="xs:hidden text-xs">FAQ</span>
+                </a>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 text-xs sm:text-sm">
-              <a href="mailto:info@rcmc.edu.bd" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-                <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline">Email info@rcmc.edu.bd</span>
-                <span className="xs:hidden">Email</span>
-              </a>
-              <a href="tel:+8801528000258" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-                <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline">Phone +88-0123456789</span>
-                <span className="xs:hidden">Phone</span>
-              </a>
+        {/* Middle Bar - Logo and Contact Info */}
+        <div className="hidden lg:block bg-white py-3 sm:py-4 border-b">
+          <div className="responsive-container-full">
+            <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-4 max-w-7xl mx-auto">
+              {/* Logo */}
+              <div className="flex flex-col items-center lg:items-start">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-lg sm:text-xl">RCMC</span>
+                  </div>
+                  <div className="text-center lg:text-left">
+                    <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 leading-tight">
+                      Rangpur Community Medical College & Hospital
+                    </h1>
+                    <p className="text-xs sm:text-sm text-gray-600">
+                      An Institution of RANGPUR GROUP
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 text-xs sm:text-sm">
+                <a href="mailto:info@rcmc.edu.bd" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+                  <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden xs:inline">Email info@rcmc.edu.bd</span>
+                  <span className="xs:hidden">Email</span>
+                </a>
+                <a href="tel:+8801528000258" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+                  <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden xs:inline">Phone +88-0123456789</span>
+                  <span className="xs:hidden">Phone</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Navigation */}
-      <nav className="bg-white shadow-md sticky top-0 z-40">
-        <div className="w-full px-2 lg:px-3 xl:px-4">
+        {/* Main Navigation */}
+        <nav className="bg-white shadow-md">
+          <div className="w-full px-2 lg:px-3 xl:px-4">
           <div className="flex justify-between items-center h-12 sm:h-14 lg:h-16">
             {/* Mobile Menu Button */}
             <Button
@@ -639,6 +641,7 @@ const Navbar: React.FC = () => {
           </>
         </div>
       </nav>
+      </div>
     </>
   )
 }
