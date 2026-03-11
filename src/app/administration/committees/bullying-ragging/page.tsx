@@ -228,9 +228,6 @@ export default function BullyingRaggingPage() {
         <div className="responsive-container-full py-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-                <Shield className="w-12 h-12 text-red-600" />
-              </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#111827]">Anti-Bullying & Anti-Ragging Committee</h1>
             <p className="text-xl md:text-2xl text-[#253240] leading-relaxed mb-8">

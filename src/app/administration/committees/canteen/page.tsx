@@ -167,9 +167,6 @@ export default function CanteenPage() {
         <div className="responsive-container-full py-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-                <Coffee className="w-12 h-12 text-orange-600" />
-              </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Canteen Committee</h1>
             <p className="text-xl md:text-2xl text-black-800 leading-relaxed mb-8">

@@ -148,9 +148,6 @@ export default function SportsCulturalPage() {
         <div className="relative responsive-container-full py-20">
           <div className="max-w-4xl mx-auto text-center text-gray-800">
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-                <Trophy className="w-12 h-12 text-white" />
-              </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
               Sports & Cultural Committees
