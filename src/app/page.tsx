@@ -717,6 +717,43 @@ Nurturing tomorrow's healthcare leaders today.`,
           {/* Second Column - Notice Widget (3 columns) */}
           <div className="lg:col-span-3 bg-gray-300 p-4 rounded-lg">
             <div className="sticky top-6 space-y-6">
+              {/* Image Section */}
+              <Card className="bg-white border-l-4 border-primary">
+                <CardContent className="p-4">
+                  <div className="space-y-4">
+                    {/* First Image - Managing Director */}
+                    <div className="relative overflow-hidden rounded-lg">
+                      <img 
+                        src="https://picsum.photos/seed/businessman-formal/400/250.jpg"
+                        alt="Managing Director - Male Professional"
+                        className="w-full h-48 sm:h-56 object-cover rounded-lg"
+                        onError={(e) => { e.currentTarget.src = 'https://picsum.photos/seed/professional-man-formal/400/250.jpg' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                      {/* Text Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                        <p className="text-white font-semibold text-sm">Managing Director</p>
+                      </div>
+                    </div>
+                    
+                    {/* Second Image - Chairman */}
+                    <div className="relative overflow-hidden rounded-lg">
+                      <img 
+                        src="https://picsum.photos/seed/businesswoman-formal/400/250.jpg"
+                        alt="Chairman - Female Professional"
+                        className="w-full h-48 sm:h-56 object-cover rounded-lg"
+                        onError={(e) => { e.currentTarget.src = 'https://picsum.photos/seed/professional-woman-formal/400/250.jpg' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                      {/* Text Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                        <p className="text-white font-semibold text-sm">Chairman</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Notice Board Widget */}
               <Card className="bg-white border-l-4 border-primary">
                 <CardHeader className="bg-gray-700 border-b">

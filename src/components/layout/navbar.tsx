@@ -459,40 +459,40 @@ const Navbar: React.FC = () => {
 
         {/* Main Navigation */}
         <nav className="bg-white shadow-md">
-          <div className="w-full px-2 lg:px-3 xl:px-4">
-          <div className="flex justify-between items-center h-12 sm:h-14 lg:h-16">
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMenu}
-              className="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-white border border-gray-200 shadow-sm text-gray-800 hover:bg-gray-50 hover:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+          <div className="w-full px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8 2xl:px-12">
+            <div className="flex justify-between items-center h-12 sm:h-14 md:h-15 lg:h-16 xl:h-18 2xl:h-20">
+              {/* Mobile Menu Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleMenu}
+                className="lg:hidden h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 rounded-full bg-white border border-gray-200 shadow-sm text-gray-800 hover:bg-gray-50 hover:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </Button>
 
             <div className="lg:hidden flex-1 px-2 ml-[3px]">
               <div className="flex items-center justify-center gap-2 min-w-0">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 rounded-md flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-600 rounded-md flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-bold text-xs sm:text-sm">RCMC</span>
                 </div>
                 <div className="min-w-0 text-left">
-                  <div className="truncate text-sm sm:text-base font-semibold text-gray-900 leading-tight">
+                  <div className="truncate text-sm sm:text-base md:text-lg font-semibold text-gray-900 leading-tight">
                     Rangpur Community Medical College & Hospital
                   </div>
-                  <div className="truncate text-[10px] sm:text-xs text-gray-600 leading-tight">
+                  <div className="truncate text-[10px] sm:text-xs md:text-sm text-gray-600 leading-tight">
                     An Institution of RANGPUR GROUP
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:hidden h-9 w-9 sm:h-10 sm:w-10" />
+            <div className="lg:hidden h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11" />
 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center justify-center flex-1 w-full">
-              <div className="flex items-center space-x-2 lg:space-x-3.99 xl:space-x-6">
+              <div className="flex items-center space-x-1 md:space-x-2 lg:space-x-3.99 xl:space-x-5 2xl:space-x-8">
                 {navItems.map((item, index) => {
                   const isLastTwo = index >= navItems.length - 2
 
@@ -501,13 +501,13 @@ const Navbar: React.FC = () => {
                       {item.href ? (
                         <Link
                           href={item.href}
-                          className="flex items-center gap-0 px-1 lg:px-1.5 py-3 text-xs lg:text-xs xl:text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
+                          className="flex items-center gap-0 px-1 md:px-2 lg:px-1.5 xl:px-2.5 2xl:px-3 py-3 text-xs md:text-sm lg:text-xs xl:text-sm 2xl:text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap"
                         >
-                          {item.title === "Home" && <Home className="h-3 w-3" style={{ color: '#26ABEE' }} />}
+                          {item.title === "Home" && <Home className="h-3 w-3 md:h-4 md:w-4" style={{ color: '#26ABEE' }} />}
                           {item.title}
                         </Link>
                       ) : (
-                        <button className="flex items-center gap-0 px-1 lg:px-1.5 py-3 text-xs lg:text-xs xl:text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
+                        <button className="flex items-center gap-0 px-1 md:px-2 lg:px-1.5 xl:px-2.5 2xl:px-3 py-3 text-xs md:text-sm lg:text-xs xl:text-sm 2xl:text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
                           {item.title}
                           {item.children && <span className="ml-1 text-gray-400 text-sm font-bold">+</span>}
                         </button>
@@ -517,9 +517,9 @@ const Navbar: React.FC = () => {
                       {item.children && (
                         <div
                           className={`absolute top-full mt-0 rounded-lg shadow-xl opacity-0 invisible translate-y-2 scale-[0.98] pointer-events-none transition-all duration-200 ease-out z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto ${
-                            isLastTwo ? "left-0 lg:left-auto lg:right-0 xl:right-0 2xl:right-0" : "left-0 lg:left-0 xl:left-0"
+                            isLastTwo ? "left-0 md:left-auto md:right-0 lg:left-auto lg:right-0 xl:left-0 xl:right-0 2xl:left-0 2xl:right-0" : "left-0 md:left-0 lg:left-0 xl:left-0 2xl:left-0"
                           } ${
-                            "w-44 sm:w-48 md:w-52 lg:w-56 xl:w-60 2xl:w-64"
+                            "w-36 sm:w-40 md:w-48 lg:w-56 xl:w-64 2xl:w-72"
                           }`}
                           style={{ backgroundColor: '#E7EFE8' }}
                         >
@@ -538,12 +538,12 @@ const Navbar: React.FC = () => {
                                 {child.href ? (
                                   <Link
                                     href={child.href}
-                                    className={`block px-1.5 sm:px-2 py-1.5 text-xs text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
+                                    className={`block px-1.5 sm:px-2 md:px-2.5 lg:px-2 xl:px-3 2xl:px-3.5 py-1.5 text-xs md:text-sm lg:text-xs xl:text-sm 2xl:text-sm text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
                                   >
                                     {child.title}
                                   </Link>
                                 ) : (
-                                  <div className="px-1.5 sm:px-2 py-1.5 text-xs text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer flex items-center justify-between">
+                                  <div className="px-1.5 sm:px-2 md:px-2.5 lg:px-2 xl:px-3 2xl:px-3.5 py-1.5 text-xs md:text-sm lg:text-xs xl:text-sm 2xl:text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer flex items-center justify-between">
                                     <span>{child.title}</span>
                                     {child.children && <span className="ml-2 text-gray-400 text-xs">+</span>}
                                   </div>
@@ -554,7 +554,7 @@ const Navbar: React.FC = () => {
                                   <div
                                     className={`absolute top-0 left-full ml-0 rounded-lg shadow-xl opacity-0 invisible translate-x-2 scale-[0.98] pointer-events-none transition-all duration-200 ease-out z-50 group-hover/submenu:opacity-100 group-hover/submenu:visible group-hover/submenu:translate-x-0 group-hover/submenu:scale-100 group-hover/submenu:pointer-events-auto ${
                                       isLastTwo ? "right-full mr-0 left-auto" : "left-full ml-0"
-                                    } min-w-[280px] md:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] 2xl:min-w-[360px]`}
+                                    } min-w-[240px] sm:min-w-[260px] md:min-w-[280px] lg:min-w-[300px] xl:min-w-[320px] 2xl:min-w-[340px]`}
                                     style={{ backgroundColor: '#E7EFE8' }}
                                   >
                                     {/* Bridge area to prevent gap */}
@@ -566,7 +566,7 @@ const Navbar: React.FC = () => {
                                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-0.5" />
                                             <Link
                                               href={subChild.href || "#"}
-                                              className={`block px-2 sm:px-3 py-1.5 text-xs text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
+                                              className={`block px-2 sm:px-2.5 md:px-3 lg:px-3 xl:px-3.5 2xl:px-4 py-1.5 text-xs md:text-sm lg:text-xs xl:text-sm 2xl:text-sm text-gray-700 transition-all duration-200 whitespace-normal leading-snug hover:bg-gray-100 hover:text-gray-900`}
                                             >
                                               {subChild.title}
                                             </Link>
