@@ -747,10 +747,12 @@ Nurturing tomorrow's healthcare leaders today.`,
                         onError={(e) => { e.currentTarget.src = 'https://picsum.photos/seed/professional-woman-formal/400/250.jpg' }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                      {/* Text Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 lg:hidden xl:block">
-                        <p className="text-white font-semibold text-sm">Chairman</p>
-                      </div>
+                    </div>
+                    {/* Text Outside Image */}
+                    <div className="mt-4">
+                      <p className="text-white font-semibold text-sm bg-black/50 px-3 py-2 rounded-lg inline-block">
+                        Chairman
+                      </p>
                     </div>
                   </div>
                 </CardContent>
