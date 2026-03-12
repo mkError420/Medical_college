@@ -42,25 +42,10 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [selectedMessage, setSelectedMessage] = useState<any>(null)
   const [mapZoom, setMapZoom] = useState(15)
+  const [isAdmissionDropdownOpen, setIsAdmissionDropdownOpen] = useState(false)
+  const [isFeeDropdownOpen, setIsFeeDropdownOpen] = useState(false)
   
   const messageData = [
-    {
-      id: 'md',
-      name: 'Dr. A. H. M. Kamal',
-      position: 'Managing Director',
-      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&h=100&fit=crop&crop=face&auto=format',
-      title: 'MD Message',
-      description: 'From the Managing Director\'s Desk',
-      content: `Welcome to our esteemed Medical College & Hospital. We are committed to excellence in medical education and healthcare services. Our institution stands as a beacon of hope and healing.
-
-With state-of-the-art facilities, experienced faculty, and a patient-centric approach, we continue to set benchmarks in medical education and healthcare delivery.
-
-Our mission is to nurture future healthcare professionals who will serve humanity with compassion, skill, and integrity. We believe in creating an environment where innovation thrives and excellence becomes a habit.
-
-Together, we heal, teach, and innovate for a healthier tomorrow.`,
-      quote: "Together, we heal, teach, and innovate for a healthier tomorrow.",
-      link: '/administration/ministry/management-committee'
-    },
     {
       id: 'chairman',
       name: 'Prof. Dr. M. A. Karim',
@@ -76,6 +61,23 @@ Our vision is to be recognized globally as a center of excellence in medical edu
 
 Excellence in education, compassion in care.`,
       quote: "Excellence in education, compassion in care.",
+      link: '/administration/ministry/management-committee'
+    },
+    {
+      id: 'md',
+      name: 'Dr. A. H. M. Kamal',
+      position: 'Managing Director',
+      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&h=100&fit=crop&crop=face&auto=format',
+      title: 'MD Message',
+      description: 'From the Managing Director\'s Desk',
+      content: `Welcome to our esteemed Medical College & Hospital. We are committed to excellence in medical education and healthcare services. Our institution stands as a beacon of hope and healing.
+
+With state-of-the-art facilities, experienced faculty, and a patient-centric approach, we continue to set benchmarks in medical education and healthcare delivery.
+
+Our mission is to nurture future healthcare professionals who will serve humanity with compassion, skill, and integrity. We believe in creating an environment where innovation thrives and excellence becomes a habit.
+
+Together, we heal, teach, and innovate for a healthier tomorrow.`,
+      quote: "Together, we heal, teach, and innovate for a healthier tomorrow.",
       link: '/administration/ministry/management-committee'
     },
     {
@@ -457,108 +459,80 @@ Nurturing tomorrow's healthcare leaders today.`,
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-                  <Card className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                        <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary" />
+                <div className="max-w-4xl mx-auto">
+                  <div className="space-y-8">
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <GraduationCap className="h-6 w-6 text-primary" />
                       </div>
-                      <CardTitle>Quality Education</CardTitle>
-                      <CardDescription>
-                        Comprehensive MBBS program with modern curriculum and experienced faculty members dedicated to student success.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Link href="/admission/local" className="text-primary hover:text-primary-dark font-medium flex items-center">
-                        Learn more <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      </Link>
-                    </CardContent>
-                  </Card>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Quality Education</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          Comprehensive MBBS program with modern curriculum and experienced faculty members dedicated to student success.
+                        </p>
+                      </div>
+                    </div>
 
-                  <Card className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                        <Stethoscope className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary" />
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Stethoscope className="h-6 w-6 text-primary" />
                       </div>
-                      <CardTitle>Advanced Healthcare</CardTitle>
-                      <CardDescription>
-                        State-of-the-art medical facilities providing comprehensive healthcare services across all major specialties.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Link href="/hospital" className="text-primary hover:text-primary-dark font-medium flex items-center">
-                        Learn more <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      </Link>
-                    </CardContent>
-                  </Card>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Advanced Healthcare</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          State-of-the-art medical facilities providing comprehensive healthcare services across all major specialties.
+                        </p>
+                      </div>
+                    </div>
 
-                  <Card className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                        <Microscope className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary" />
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Microscope className="h-6 w-6 text-primary" />
                       </div>
-                      <CardTitle>Research Excellence</CardTitle>
-                      <CardDescription>
-                        Cutting-edge research facilities and opportunities for students and faculty to contribute to medical science.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Link href="/medical-education" className="text-primary hover:text-primary-dark font-medium flex items-center">
-                        Learn more <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      </Link>
-                    </CardContent>
-                  </Card>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Research Excellence</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          Cutting-edge research facilities and opportunities for students and faculty to contribute to medical science.
+                        </p>
+                      </div>
+                    </div>
 
-                  <Card className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                        <Building className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary" />
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Building className="h-6 w-6 text-primary" />
                       </div>
-                      <CardTitle>Modern Facilities</CardTitle>
-                      <CardDescription>
-                        Well-equipped laboratories, modern classrooms, digital library, and comfortable hostel facilities.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Link href="/facilities" className="text-primary hover:text-primary-dark font-medium flex items-center">
-                        Learn more <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      </Link>
-                    </CardContent>
-                  </Card>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Modern Facilities</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          Well-equipped laboratories, modern classrooms, digital library, and comfortable hostel facilities.
+                        </p>
+                      </div>
+                    </div>
 
-                  <Card className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                        <Users className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary" />
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Users className="h-6 w-6 text-primary" />
                       </div>
-                      <CardTitle>Expert Faculty</CardTitle>
-                      <CardDescription>
-                        Renowned professors and medical practitioners with extensive clinical and teaching experience.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Link href="/hospital/doctors" className="text-primary hover:text-primary-dark font-medium flex items-center">
-                        Learn more <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      </Link>
-                    </CardContent>
-                  </Card>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Faculty</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          Renowned professors and medical practitioners with extensive clinical and teaching experience.
+                        </p>
+                      </div>
+                    </div>
 
-                  <Card className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                        <Heart className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary" />
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Heart className="h-6 w-6 text-primary" />
                       </div>
-                      <CardTitle>Patient Care</CardTitle>
-                      <CardDescription>
-                        Compassionate healthcare services with focus on patient wellness and community health programs.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <Link href="/hospital/emergency" className="text-primary hover:text-primary-dark font-medium flex items-center">
-                        Learn more <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                      </Link>
-                    </CardContent>
-                  </Card>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Patient Care</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          Compassionate healthcare services with focus on patient wellness and community health programs.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -761,24 +735,7 @@ Nurturing tomorrow's healthcare leaders today.`,
               <Card className="bg-white border-l-4 border-primary lg:order-2 order-1 hidden lg:block">
                 <CardContent className="p-4">
                   <div className="space-y-4">
-                    {/* First Image - Managing Director */}
-                    <div className="relative overflow-hidden rounded-lg">
-                      <img 
-                        src="https://picsum.photos/seed/businessman-formal/400/250.jpg"
-                        alt="Managing Director - Male Professional"
-                        className="w-full h-40 sm:h-48 lg:h-56 object-cover rounded-lg"
-                        onError={(e) => { e.currentTarget.src = 'https://picsum.photos/seed/professional-man-formal/400/250.jpg' }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                    </div>
-                    {/* Text Outside Image */}
-                    <div className="mt-4">
-                      <p className="text-white font-semibold text-sm bg-black/50 px-3 py-2 rounded-lg inline-block">
-                        Managing Director
-                      </p>
-                    </div>
-                    
-                    {/* Second Image - Chairman */}
+                    {/* First Image - Chairman */}
                     <div className="relative overflow-hidden rounded-lg">
                       <img 
                         src="https://picsum.photos/seed/businesswoman-formal/400/250.jpg"
@@ -792,6 +749,23 @@ Nurturing tomorrow's healthcare leaders today.`,
                     <div className="mt-4">
                       <p className="text-white font-semibold text-sm bg-black/50 px-3 py-2 rounded-lg inline-block">
                         Chairman
+                      </p>
+                    </div>
+                    
+                    {/* Second Image - Managing Director */}
+                    <div className="relative overflow-hidden rounded-lg">
+                      <img 
+                        src="https://picsum.photos/seed/businessman-formal/400/250.jpg"
+                        alt="Managing Director - Male Professional"
+                        className="w-full h-40 sm:h-48 lg:h-56 object-cover rounded-lg"
+                        onError={(e) => { e.currentTarget.src = 'https://picsum.photos/seed/professional-man-formal/400/250.jpg' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                    </div>
+                    {/* Text Outside Image */}
+                    <div className="mt-4">
+                      <p className="text-white font-semibold text-sm bg-black/50 px-3 py-2 rounded-lg inline-block">
+                        Managing Director
                       </p>
                     </div>
                   </div>
@@ -849,6 +823,112 @@ Nurturing tomorrow's healthcare leaders today.`,
                   <div className="mt-4 pt-4 border-t">
                     <Link href="/notice-board/overview" className="text-primary hover:text-primary-dark font-medium text-sm flex items-center justify-center">
                       View All Notices <ArrowRight className="ml-1 h-3 w-3" />
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Admission Widget */}
+              <Card className="bg-white">
+                <CardHeader className="bg-gray-700 border-b">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                      <GraduationCap className="h-5 w-5 text-red-500 animate-pulse" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-white">Admission</CardTitle>
+                      <CardDescription className="text-sm text-gray-300">Join our programs</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-4">
+                  <div className="space-y-2">
+                    <Link href="/admission/local/mbbs-info" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-gray-900">MBBS Program</span>
+                        <ArrowRight className="h-4 w-4 text-gray-400" />
+                      </div>
+                    </Link>
+                    <Link href="/admission/local/eligibility" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-gray-900">Eligibility Criteria</span>
+                        <ArrowRight className="h-4 w-4 text-gray-400" />
+                      </div>
+                    </Link>
+                    <div className="relative group"
+                      onMouseEnter={() => setIsAdmissionDropdownOpen(true)}
+                      onMouseLeave={() => setIsAdmissionDropdownOpen(false)}
+                      >
+                        <button 
+                        onClick={() => setIsAdmissionDropdownOpen(!isAdmissionDropdownOpen)}
+                        className="block w-full p-3 rounded-lg hover:bg-gray-50 transition-colors text-left"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-gray-900">Admission Process</span>
+                          <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${isAdmissionDropdownOpen ? 'rotate-180' : ''}`} />
+                        </div>
+                      </button>
+                      
+                      {/* Dropdown Content */}
+                      {isAdmissionDropdownOpen && (
+                        <div 
+                          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]"
+                          onMouseEnter={() => setIsAdmissionDropdownOpen(true)}
+                          onMouseLeave={() => setIsAdmissionDropdownOpen(false)}
+                        >
+                          <div className="py-2">
+                            <Link href="/admission/local/process" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                              Local Admission Process
+                            </Link>
+                            <Link href="/admission/foreign/process" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                              Foreign Admission Process
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="relative group"
+                      onMouseEnter={() => setIsFeeDropdownOpen(true)}
+                      onMouseLeave={() => setIsFeeDropdownOpen(false)}
+                      >
+                        <button 
+                          onClick={() => setIsFeeDropdownOpen(!isFeeDropdownOpen)}
+                          className="block w-full p-3 rounded-lg hover:bg-gray-50 transition-colors text-left"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Fee Structure</span>
+                            <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${isFeeDropdownOpen ? 'rotate-180' : ''}`} />
+                          </div>
+                        </button>
+                      
+                      {/* Dropdown Content */}
+                      {isFeeDropdownOpen && (
+                        <div 
+                          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]"
+                          onMouseEnter={() => setIsFeeDropdownOpen(true)}
+                          onMouseLeave={() => setIsFeeDropdownOpen(false)}
+                        >
+                          <div className="py-2">
+                            <Link href="/admission/local/fee-structure" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                              Local Fee Structure
+                            </Link>
+                            <Link href="/admission/foreign/fee-structure" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                              Foreign Fee Structure
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <Link href="/admission/local" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-gray-900">Apply Now</span>
+                        <ArrowRight className="h-4 w-4 text-gray-400" />
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="mt-4 pt-4 border-t">
+                    <Link href="/admission" className="text-primary hover:text-primary-dark font-medium text-sm flex items-center justify-center">
+                      View All Admission Info <ArrowRight className="ml-1 h-3 w-3" />
                     </Link>
                   </div>
                 </CardContent>
@@ -1001,9 +1081,14 @@ Nurturing tomorrow's healthcare leaders today.`,
                     </div>
                   </div>
                   <div className="mt-3">
-                    <Link href="/contact" className="text-primary hover:text-primary-dark font-medium text-sm flex items-center justify-center">
+                    <a 
+                      href="https://www.google.com/maps/search/?api=1&query=Rangpur+Community+Medical+College+Hospital+Bangladesh" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary-dark font-medium text-sm flex items-center justify-center"
+                    >
                       Get Directions <ArrowRight className="ml-1 h-3 w-3" />
-                    </Link>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -1023,10 +1108,16 @@ Nurturing tomorrow's healthcare leaders today.`,
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 flex-shrink-0" />
                 <span className="text-lg sm:text-xl md:text-2xl font-bold">+880 1234-567890</span>
               </a>
-              <Button size="lg" className="bg-white text-primary hover:bg-highlight">
-                <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Get Directions
-              </Button>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Rangpur+Community+Medical+College+Hospital+Bangladesh" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="bg-white text-primary hover:bg-highlight">
+                  <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  Get Directions
+                </Button>
+              </a>
             </div>
           </div>
         </div>
