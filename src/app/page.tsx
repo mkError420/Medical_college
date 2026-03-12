@@ -859,8 +859,10 @@ Nurturing tomorrow's healthcare leaders today.`,
                     </Link>
                     <div className="relative group"
                       onMouseEnter={() => setIsAdmissionDropdownOpen(true)}
-                      onMouseLeave={() => setIsAdmissionDropdownOpen(false)}
-                      >
+                      onMouseLeave={() => {
+                        setTimeout(() => setIsAdmissionDropdownOpen(false), 150)
+                      }}
+                                            >
                         <button 
                         onClick={() => setIsAdmissionDropdownOpen(!isAdmissionDropdownOpen)}
                         className="block w-full p-3 rounded-lg hover:bg-gray-50 transition-colors text-left"
@@ -887,8 +889,10 @@ Nurturing tomorrow's healthcare leaders today.`,
                     </div>
                     <div className="relative group"
                       onMouseEnter={() => setIsFeeDropdownOpen(true)}
-                      onMouseLeave={() => setIsFeeDropdownOpen(false)}
-                      >
+                      onMouseLeave={() => {
+                        setTimeout(() => setIsFeeDropdownOpen(false), 150)
+                      }}
+                                            >
                         <button 
                           onClick={() => setIsFeeDropdownOpen(!isFeeDropdownOpen)}
                           className="block w-full p-3 rounded-lg hover:bg-gray-50 transition-colors text-left"
@@ -915,8 +919,10 @@ Nurturing tomorrow's healthcare leaders today.`,
                     </div>
                     <div className="relative group"
                       onMouseEnter={() => setIsApplyDropdownOpen(true)}
-                      onMouseLeave={() => setIsApplyDropdownOpen(false)}
-                      >
+                      onMouseLeave={() => {
+                        setTimeout(() => setIsApplyDropdownOpen(false), 150)
+                      }}
+                                            >
                         <button 
                           onClick={() => setIsApplyDropdownOpen(!isApplyDropdownOpen)}
                           className="block w-full p-3 rounded-lg hover:bg-gray-50 transition-colors text-left"
