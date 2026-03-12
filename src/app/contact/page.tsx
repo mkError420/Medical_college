@@ -58,8 +58,8 @@ export default function ContactPage() {
       <section className="bg-[#E2E6E6] py-16">
         <div className="responsive-container">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Rangpur Community Medical College — Shaping Clinicians, Inspiring Confidence</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-bray-700">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-700">Rangpur Community Medical College — Shaping Clinicians, Inspiring Confidence</h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-700">
               Get in touch with Rangpur Community Medical College & Hospital
             </p>
           </div>

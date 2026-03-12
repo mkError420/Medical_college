@@ -998,7 +998,6 @@ export default function MBBSInfoPage() {
         </div>
       )}
 
-
     </div>
   )
 }

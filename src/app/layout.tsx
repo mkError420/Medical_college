@@ -9,6 +9,7 @@ export const viewport: Viewport = {
 };
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import MessageWidget from "@/components/ui/message-widget";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <MessageWidget />
       </body>
     </html>
   );
