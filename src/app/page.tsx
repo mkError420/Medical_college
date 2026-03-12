@@ -307,25 +307,46 @@ Nurturing tomorrow's healthcare leaders today.`,
         </div>
       </section>
 
-      {/* Banner Content Section */}
-      <section className="bg-[#F3F7F4] py-12 sm:py-16">
-        <div className="responsive-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {banners.map((banner) => (
-              <div key={banner.id} className="bg-gray-700 rounded-lg p-6 text-center hover:bg-gray-600 transition-colors">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{banner.title}</h3>
-                <p className="text-sm sm:text-base mb-4 text-white/90 line-clamp-3">{banner.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Main Content - Two Column Layout */}
       <div className="responsive-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 section-padding">
           {/* First Column - Main Content (9 columns) */}
           <div className="lg:col-span-9 space-y-8">
+            {/* Who We Are Section */}
+            <section className="bg-white rounded-lg">
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader className="bg-primary/5 border-b">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center">
+                      <Building className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl sm:text-2xl text-primary">Who We Are?</CardTitle>
+                      <CardDescription className="text-sm">About Our Institution</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-4 sm:p-6">
+                  <div className="space-y-4">
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-gray-700 leading-relaxed">
+                        Rangpur Community Medical College & Hospital is a premier institution dedicated to excellence in medical education and healthcare services. Established with a vision to create future healthcare leaders, we combine academic rigor with compassionate patient care.
+                      </p>
+                      <p className="text-gray-700 leading-relaxed">
+                        Our state-of-the-art facilities, experienced faculty, and comprehensive curriculum ensure that students receive world-class medical education while our hospital provides quality healthcare services to the community.
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-4 border-t">
+                      <Link href="/about" className="text-primary hover:text-primary-dark font-medium text-sm flex items-center">
+                        Learn more about us... <ArrowRight className="ml-1 h-3 w-3" />
+                      </Link>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
             {/* MD Message & Notice Board Section */}
             <section className="bg-white rounded-lg">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -378,6 +399,25 @@ Nurturing tomorrow's healthcare leaders today.`,
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            </section>
+
+            {/* Banner Content Section */}
+            <section className="bg-[#F3F7F4] py-12 sm:py-16">
+              <div className="responsive-container">
+                <div className="text-center mb-12 sm:mb-16">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+                    What we provide?
+                  </h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {banners.map((banner) => (
+                    <div key={banner.id} className="bg-gray-700 rounded-lg p-6 text-center hover:bg-gray-600 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{banner.title}</h3>
+                      <p className="text-sm sm:text-base mb-4 text-white/90 line-clamp-3">{banner.description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
 
