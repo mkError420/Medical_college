@@ -313,7 +313,7 @@ Nurturing tomorrow's healthcare leaders today.`,
       
       {/* Main Content - Two Column Layout */}
       <div className="responsive-container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 section-padding">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 lg:mx-8 lg:px-8 section-padding">
           {/* First Column - Main Content (9 columns) */}
           <div className="lg:col-span-9 space-y-8">
             {/* Who We Are Section */}
@@ -325,7 +325,7 @@ Nurturing tomorrow's healthcare leaders today.`,
                       <Building className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                     </div>
                     <div>
-                      <CardTitle className="text-xl sm:text-2xl text-primary">Who We Are?</CardTitle>
+                      <CardTitle className="text-xl sm:text-2xl text-gray-700">Who We Are?</CardTitle>
                       <CardDescription className="text-sm">About Our Institution</CardDescription>
                     </div>
                   </div>
@@ -984,7 +984,7 @@ Nurturing tomorrow's healthcare leaders today.`,
                         <ArrowRight className="h-4 w-4 text-gray-400" />
                       </div>
                     </Link>
-                    <Link href="/facilities" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                    <Link href="http://localhost:3000/facilities/academic/general" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
                       <div className="flex items-center justify-between">
                         <span className="text-sm font-medium text-gray-900">Facilities</span>
                         <ArrowRight className="h-4 w-4 text-gray-400" />
