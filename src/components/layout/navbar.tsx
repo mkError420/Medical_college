@@ -321,7 +321,7 @@ function MobileNavItem({
         <Link
           href={item.href}
           onClick={onLinkClick}
-          className="flex items-center py-2 sm:py-3 px-2 sm:px-3 text-xs sm:text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors text-sm sm:text-base min-h-[44px]"
+          className="flex items-center py-2 sm:py-3 px-2 sm:px-3 text-xs sm:text-sm text-gray-700 hover:text-gray-700 hover:bg-[#E0E6E4] hover:shadow-sm hover:translate-x-1 rounded-md transition-all duration-200 text-sm sm:text-base min-h-[44px]"
         >
           {item.title}
         </Link>
@@ -330,7 +330,7 @@ function MobileNavItem({
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex w-full items-center justify-between py-2 sm:py-3 px-2 sm:px-3 text-left text-xs sm:text-sm font-semibold text-gray-900 hover:bg-blue-50 rounded-md transition-colors min-h-[44px]"
+            className="flex w-full items-center justify-between py-2 sm:py-3 px-2 sm:px-3 text-left text-xs sm:text-sm font-semibold text-gray-700 hover:bg-[#E0E6E4] hover:shadow-sm hover:translate-x-1 rounded-md transition-all duration-200 min-h-[44px]"
             aria-expanded={isExpanded}
           >
             {item.title}

@@ -380,9 +380,9 @@ export default function HospitalOverviewPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#E0E6E4] text-gray-700">
       {/* Hero Section */}
-      <div className="bg-[#FBFCFC] text-gray-700">
+      <div className="bg-[#E0E6E4] text-gray-700">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center">
             <div className="flex justify-center mb-6">
@@ -420,7 +420,7 @@ export default function HospitalOverviewPage() {
       </div>
 
       {/* Quick Stats */}
-      <div className="bg-white border-b">
+      <div className="bg-[#E0E6E4] border-b">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
             <div className="text-center">
@@ -484,7 +484,7 @@ export default function HospitalOverviewPage() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="bg-white border-b sticky top-0 z-40">
+      <div className="bg-[#E0E6E4] border-b sticky top-0 z-40">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-8">
             {["overview", "departments", "services", "achievements", "testimonials"].map((tab) => (
@@ -826,40 +826,40 @@ export default function HospitalOverviewPage() {
       </div>
 
       {/* Contact Section */}
-      <div className="bg-blue-600 text-white py-12 mt-12">
+      <div className="bg-[#E0E6E4] text-gray-700 py-12 mt-12">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Need Medical Assistance?</h2>
-            <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Our dedicated team is here to help you 24/7
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone className="h-8 w-8" />
+              <div className="w-16 h-16 bg-gray-700 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Phone className="h-8 w-8 text-gray-700" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Emergency Hotline</h3>
-              <p className="text-blue-100 mb-2">24/7 Emergency Services</p>
+              <p className="text-gray-600 mb-2">24/7 Emergency Services</p>
               <p className="text-2xl font-bold">+88-0123456789</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-8 w-8" />
+              <div className="w-16 h-16 bg-gray-700 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Calendar className="h-8 w-8 text-gray-700" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Appointments</h3>
-              <p className="text-blue-100 mb-2">Book Your Visit</p>
-              <button className="bg-white text-blue-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
+              <p className="text-gray-600 mb-2">Book Your Visit</p>
+              <button className="bg-gray-700 text-gray-100 px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors font-semibold">
                 Book Now
               </button>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8" />
+              <div className="w-16 h-16 bg-gray-700 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-8 w-8 text-gray-700" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-              <p className="text-blue-100 mb-2">Rangpur, Bangladesh</p>
-              <button className="bg-white text-blue-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
+              <p className="text-gray-600 mb-2">Rangpur, Bangladesh</p>
+              <button className="bg-gray-700 text-gray-100 px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors font-semibold">
                 Get Directions
               </button>
             </div>
