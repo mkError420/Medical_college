@@ -44,6 +44,7 @@ export default function Home() {
   const [mapZoom, setMapZoom] = useState(15)
   const [isAdmissionDropdownOpen, setIsAdmissionDropdownOpen] = useState(false)
   const [isFeeDropdownOpen, setIsFeeDropdownOpen] = useState(false)
+  const [isApplyDropdownOpen, setIsApplyDropdownOpen] = useState(false)
   
   const messageData = [
     {
@@ -332,8 +333,9 @@ Nurturing tomorrow's healthcare leaders today.`,
                 <CardContent className="p-4 sm:p-6">
                   <div className="space-y-4">
                     <div className="prose prose-sm max-w-none">
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">Rangpur Community Medical College — Shaping Clinicians, Inspiring Confidence</h2>
                       <p className="text-gray-700 leading-relaxed">
-                        Rangpur Community Medical College & Hospital is a premier institution dedicated to excellence in medical education and healthcare services. Established with a vision to create future healthcare leaders, we combine academic rigor with compassionate patient care.
+                        At Rangpur Community Medical College, excellence isn't a slogan—it's our operating standard. Year after year, our programs attract strong demand: 135 MBBS seats typically fill a month before their orientation event, driven largely by recommendations from our own students and their families. We are proudly global, with 50% of our learners coming from abroad, and we currently have 344 international students enrolled from India, Nepal, Maldives, and Bhutan.
                       </p>
                       <p className="text-gray-700 leading-relaxed">
                         Our state-of-the-art facilities, experienced faculty, and comprehensive curriculum ensure that students receive world-class medical education while our hospital provides quality healthcare services to the community.
@@ -871,11 +873,7 @@ Nurturing tomorrow's healthcare leaders today.`,
                       
                       {/* Dropdown Content */}
                       {isAdmissionDropdownOpen && (
-                        <div 
-                          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]"
-                          onMouseEnter={() => setIsAdmissionDropdownOpen(true)}
-                          onMouseLeave={() => setIsAdmissionDropdownOpen(false)}
-                        >
+                        <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]">
                           <div className="py-2">
                             <Link href="/admission/local/process" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                               Local Admission Process
@@ -903,11 +901,7 @@ Nurturing tomorrow's healthcare leaders today.`,
                       
                       {/* Dropdown Content */}
                       {isFeeDropdownOpen && (
-                        <div 
-                          className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]"
-                          onMouseEnter={() => setIsFeeDropdownOpen(true)}
-                          onMouseLeave={() => setIsFeeDropdownOpen(false)}
-                        >
+                        <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]">
                           <div className="py-2">
                             <Link href="/admission/local/fee-structure" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                               Local Fee Structure
@@ -919,17 +913,34 @@ Nurturing tomorrow's healthcare leaders today.`,
                         </div>
                       )}
                     </div>
-                    <Link href="/admission/local" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-900">Apply Now</span>
-                        <ArrowRight className="h-4 w-4 text-gray-400" />
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="mt-4 pt-4 border-t">
-                    <Link href="/admission" className="text-primary hover:text-primary-dark font-medium text-sm flex items-center justify-center">
-                      View All Admission Info <ArrowRight className="ml-1 h-3 w-3" />
-                    </Link>
+                    <div className="relative group"
+                      onMouseEnter={() => setIsApplyDropdownOpen(true)}
+                      onMouseLeave={() => setIsApplyDropdownOpen(false)}
+                      >
+                        <button 
+                          onClick={() => setIsApplyDropdownOpen(!isApplyDropdownOpen)}
+                          className="block w-full p-3 rounded-lg hover:bg-gray-50 transition-colors text-left"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Apply Now</span>
+                            <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${isApplyDropdownOpen ? 'rotate-180' : ''}`} />
+                          </div>
+                        </button>
+                      
+                        {/* Dropdown Content */}
+                        {isApplyDropdownOpen && (
+                          <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]">
+                            <div className="py-2">
+                              <Link href="/admission/local/application" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                                Local Application
+                              </Link>
+                              <Link href="/admission/foreign/application" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                                Foreign Application
+                              </Link>
+                            </div>
+                          </div>
+                        )}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
